@@ -1,0 +1,27 @@
+﻿using OpenQA.Selenium;
+using System;
+
+namespace SeleniumFramework.SeleniumFramework.Controls
+{
+    public class LinkBase<T> : BaseControl
+    {
+        #region Constructor
+        public LinkBase(IWebElement element) : base(element)
+        {
+
+        }
+
+        public LinkBase(IWebElement element, bool scrollIntoView = true) : base(element)
+        {
+            this.scrollIntoView = scrollIntoView;
+        }
+
+        #endregion Constructor
+
+        public virtual T Click()
+        {
+            this.ClickBase();
+            return Activator.CreateInstance<T>();
+        }
+    }
+}
