@@ -12,12 +12,12 @@ namespace SeleniumFramework.Pages.CertDbPages
         By addNewProductButton = By.Id("addProductButton");
         By optionsHeaderSection = By.ClassName("expansion-panel-section");
         By groupOptionsDropdown = By.ClassName("k-input-inner");
-        By clearAllFiltersButton = By.XPath("//a[contains(text(), 'Clear all Filters')]");
-        By searchByPartIdTextbox = By.XPath("//a[contains(title, 'Search by PartId')]");
-        By editRecordButton = By.XPath("//a[contains(text(), 'Clear all Filters')]");
-        By pageOneLink = By.XPath("//a[contains(title, 'Page 1')]");
-        By pageTwoLink = By.XPath("//a[contains(title, 'Page 2')]");
-        By pageThreeLink = By.XPath("//a[contains(title, 'Page 3')]");
+        By clearAllFiltersButton = By.XPath("//button[contains(text(), 'Clear all Filters')]");
+        By searchByPartIdTextbox = By.XPath("//input[contains(title, 'Search by PartId')]");
+        By editRecordButton = By.XPath("//span[contains(text(), 'Edit')]");
+        By pageOneLink = By.XPath("//button[contains(title, 'Page 1')]");
+        By pageTwoLink = By.XPath("//button[contains(title, 'Page 2')]");
+        By pageThreeLink = By.XPath("//button[contains(title, 'Page 3')]");
 
         public LabelBase TitleLabel
         {
@@ -117,6 +117,13 @@ namespace SeleniumFramework.Pages.CertDbPages
 
                 return new LinkBase<string>(element);
             }
+        }
+        
+        public AddProductPage NavigateToAddProductPage()
+        {
+            AddNewProductButton.Click();
+
+            return new AddProductPage();
         }
 
         public bool IsProductPageDisplayed()

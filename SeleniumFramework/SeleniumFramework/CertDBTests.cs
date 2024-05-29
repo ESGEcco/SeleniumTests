@@ -149,7 +149,7 @@ namespace SeleniumFramework
                 LoginPage loginPage = SF.OpenSites.OpenCertDB();
                 ForgotPasswordPage forgotPasswordPage = loginPage.NavigateToForgotPasswordPage();
 
-                //Assert.IsTrue(*****CREATE VERIFY METHOD ONCE PAGE IS CREATED*****RC);
+                //Assert.IsTrue(*****CREATE VERIFY METHOD ONCE PAGE IS CREATED*****);
             }
             catch (Exception e)
             {
@@ -168,6 +168,25 @@ namespace SeleniumFramework
                 ProductPage productPage = SF.OpenSites.OpenCertDBToProductPage();
 
                 Assert.IsTrue(productPage.IsProductPageDisplayed());
+            }
+            catch (Exception e)
+            {
+                CaptureScreenshot();
+
+                throw new Exception(e.Message);
+            }
+        }
+
+        [TestMethod]
+        public void NavigateToAddProductPage()
+        {
+            try
+            {
+                LoginPage loginPage = SF.OpenSites.OpenCertDB();
+                ProductPage productPage = loginPage.Login();
+                AddProductPage addProductPage = productPage.NavigateToAddProductPage();
+
+                Assert.IsTrue(addProductPage.IsAddProductPageLoaded());
             }
             catch (Exception e)
             {
