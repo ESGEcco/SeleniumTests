@@ -11,6 +11,7 @@ namespace SeleniumFramework.Pages.CertDbPages
         By titleLabel = By.Id("title");
         By addNewProductButton = By.Id("addProductButton");
         By optionsHeaderSection = By.ClassName("expansion-panel-section");
+        By groupSectionLabel = By.XPath("//p[contains(text(), 'Group Options')]");
         By groupOptionsDropdown = By.ClassName("k-input-inner");
         By clearAllFiltersButton = By.XPath("//button[contains(text(), 'Clear all Filters')]");
         By searchByPartIdTextbox = By.XPath("//input[contains(title, 'Search by PartId')]");
@@ -18,6 +19,7 @@ namespace SeleniumFramework.Pages.CertDbPages
         By pageOneLink = By.XPath("//button[contains(title, 'Page 1')]");
         By pageTwoLink = By.XPath("//button[contains(title, 'Page 2')]");
         By pageThreeLink = By.XPath("//button[contains(title, 'Page 3')]");
+        By privacyPolicyPageLink = By.XPath("//a[contains(text(), 'Privacy')]");
 
         public LabelBase TitleLabel
         {
@@ -46,6 +48,16 @@ namespace SeleniumFramework.Pages.CertDbPages
                 IWebElement element = waitFor.Element(optionsHeaderSection);
 
                 return new ButtonBase(element);
+            }
+        }
+
+        public LabelBase GroupSectionLabel
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(groupSectionLabel);
+
+                return new LabelBase(element);
             }
         }
 
@@ -118,12 +130,42 @@ namespace SeleniumFramework.Pages.CertDbPages
                 return new LinkBase<string>(element);
             }
         }
-        
+
+        public LinkBase<string> PrivacyPolicyPageLink
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(privacyPolicyPageLink);
+
+                return new LinkBase<string>(element);
+            }
+        }
+
+
         public AddProductPage NavigateToAddProductPage()
         {
             AddNewProductButton.Click();
 
             return new AddProductPage();
+        }
+
+        public ProductPage ExpandOptionsSection()
+        {
+            OptionsHeaderSection.Click();
+
+            return new ProductPage();
+        }
+
+        public PrivacyPage NavigateToPrivacyPage()
+        {
+            PrivacyPolicyPageLink.Click();
+
+            return new PrivacyPage();
+        }
+
+        public bool IsGroupOptionLabelVisible()
+        {
+            return GroupSectionLabel.Visible;
         }
 
         public bool IsProductPageDisplayed()
