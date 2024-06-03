@@ -215,5 +215,24 @@ namespace SeleniumFramework
                 throw new Exception(e.Message);
             }
         }
+
+        [TestMethod]
+        public void NavigateToPrivacyPage()
+        {
+            try
+            {
+                LoginPage loginPage = SF.OpenSites.OpenCertDB();
+                ProductPage productPage = loginPage.Login();
+                PrivacyPage privacyPage = productPage.NavigateToPrivacyPage();
+
+                Assert.IsTrue(privacyPage.IsPrivacyPolicyPageLoaded());
+            }
+            catch (Exception e)
+            {
+                CaptureScreenshot();
+
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace SeleniumFramework.SeleniumFramework.Controls
 {
-    public class LinkNewTab<T> : LinkBase<T>
+    public class LinkNewTab<T> : LinkBase
     {
         #region Constructor
         public LinkNewTab(IWebElement element) : base(element)
@@ -15,7 +15,7 @@ namespace SeleniumFramework.SeleniumFramework.Controls
         }
         #endregion Constructor
 
-        public override T Click()
+        public override void Click()
         {
             var handles = SF.Driver.WindowHandles.ToList();
             int numberOfHandles = handles.Count;
@@ -35,8 +35,6 @@ namespace SeleniumFramework.SeleniumFramework.Controls
             SF.Driver.SwitchTo().Window(SF.Driver.WindowHandles.Last());
             SF.Driver.Manage().Window.Maximize();
             SF.Helpers.WaitFor.Load(5);
-
-            return Activator.CreateInstance<T>();
         }
     }
 }

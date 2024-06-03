@@ -101,46 +101,45 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
-        public LinkBase<string> PageOneLink
+        public LinkBase PageOneLink
         {
             get
             {
                 IWebElement element = waitFor.Element(pageOneLink);
 
-                return new LinkBase<string>(element);
+                return new LinkBase(element);
             }
         }
 
-        public LinkBase<string> PageTwoLink
+        public LinkBase PageTwoLink
         {
             get
             {
                 IWebElement element = waitFor.Element(pageTwoLink);
 
-                return new LinkBase<string>(element);
+                return new LinkBase(element);
             }
         }
 
-        public LinkBase<string> PageThreeLink
+        public LinkBase PageThreeLink
         {
             get
             {
                 IWebElement element = waitFor.Element(pageThreeLink);
 
-                return new LinkBase<string>(element);
+                return new LinkBase(element);
             }
         }
 
-        public LinkBase<string> PrivacyPolicyPageLink
+        public LinkBase PrivacyPolicyPageLink
         {
             get
             {
                 IWebElement element = waitFor.Element(privacyPolicyPageLink);
 
-                return new LinkBase<string>(element);
+                return new LinkBase(element);
             }
         }
-
 
         public AddProductPage NavigateToAddProductPage()
         {

@@ -8,7 +8,6 @@ namespace SeleniumFramework.Pages.CertDbPages
     public class PrivacyPage
     {
         WaitFor waitFor = new WaitFor();
-
         By privacyPolicyTitle = By.XPath("//h1[contains(text(), 'Privacy Policy')]");
 
         public LabelBase PrivacyPolicyTitle

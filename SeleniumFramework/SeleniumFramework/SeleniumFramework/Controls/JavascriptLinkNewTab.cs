@@ -3,7 +3,7 @@ using System;
 
 namespace SeleniumFramework.SeleniumFramework.Controls
 {
-    public class JavascriptLinkNewTab<T> : LinkBase<T>
+    public class JavascriptLinkNewTab<T> : LinkBase
     {
         #region Constructor
         public JavascriptLinkNewTab(IWebElement element) : base(element)
@@ -11,14 +11,5 @@ namespace SeleniumFramework.SeleniumFramework.Controls
 
         }
         #endregion Constructor
-
-        public override T Click()
-        {
-            SF.Helpers.Javascript.Click(element);
-            SF.Driver.SwitchTo().Window(SF.Driver.WindowHandles[1]);
-            SF.Driver.Manage().Window.Maximize();
-
-            return Activator.CreateInstance<T>();
-        }
     }
 }

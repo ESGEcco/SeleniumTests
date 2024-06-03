@@ -3,7 +3,7 @@ using System;
 
 namespace SeleniumFramework.SeleniumFramework.Controls
 {
-    public class LinkBase<T> : BaseControl
+    public class LinkBase : BaseControl
     {
         #region Constructor
         public LinkBase(IWebElement element) : base(element)
@@ -16,12 +16,11 @@ namespace SeleniumFramework.SeleniumFramework.Controls
             this.scrollIntoView = scrollIntoView;
         }
 
-        #endregion Constructor
-
-        public virtual T Click()
+        public virtual void Click()
         {
-            this.ClickBase();
-            return Activator.CreateInstance<T>();
+            base.ClickBase();
         }
+
+        #endregion Constructor
     }
 }

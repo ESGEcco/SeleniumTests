@@ -100,13 +100,13 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
-        public LinkBase<string> ForgotPasswordLink
+        public LinkBase ForgotPasswordLink
         {
             get
             {
                 IWebElement element = waitFor.Element(forgotPasswordLink);
 
-                return new LinkBase<string>(element);
+                return new LinkBase(element);
             }
         }
 
