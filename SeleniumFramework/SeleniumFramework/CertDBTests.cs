@@ -234,5 +234,24 @@ namespace SeleniumFramework
                 throw new Exception(e.Message);
             }
         }
+
+        [TestMethod]
+        public void NavigateToEditProductPage()
+        {
+            try
+            {
+                LoginPage loginPage = SF.OpenSites.OpenCertDB();
+                ProductPage productPage = loginPage.Login();
+                EditProductPage editProductPage = productPage.NavigateToEditProductPage();
+
+                Assert.IsTrue(editProductPage.IsEditProductPageTitle());
+            }
+            catch (Exception e)
+            {
+                CaptureScreenshot();
+
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

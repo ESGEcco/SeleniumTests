@@ -145,6 +145,7 @@
   <ItemGroup>
     <Compile Include="OpenSites.cs" />
     <Compile Include="Pages\CertDbPages\AddProductPage.cs" />
+    <Compile Include="Pages\CertDbPages\EditProductPage.cs" />
     <Compile Include="Pages\CertDbPages\ForgotPasswordPage.cs" />
     <Compile Include="Pages\CertDbPages\LoginPage.cs" />
     <Compile Include="Pages\CertDbPages\PrivacyPage.cs" />

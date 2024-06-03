@@ -162,6 +162,13 @@ namespace SeleniumFramework.Pages.CertDbPages
             return new PrivacyPage();
         }
 
+        public EditProductPage NavigateToEditProductPage()
+        {
+            EditRecordButton.Click();
+
+            return new EditProductPage();
+        }
+
         public bool IsGroupOptionLabelVisible()
         {
             return GroupSectionLabel.Visible;
