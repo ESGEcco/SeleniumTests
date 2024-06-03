@@ -56,6 +56,11 @@ namespace SeleniumFramework.SeleniumFramework.Controls
             }
         }
 
+        public string GetTitleAttribute()
+        {
+            return element.GetAttribute("title");
+        }
+
         public void WaitForEnabled(int secondsToWait = 30)
         {
             Stopwatch watch = new Stopwatch();
