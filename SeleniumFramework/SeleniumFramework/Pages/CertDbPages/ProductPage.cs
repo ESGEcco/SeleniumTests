@@ -14,7 +14,7 @@ namespace SeleniumFramework.Pages.CertDbPages
         By groupSectionLabel = By.XPath("//p[contains(text(), 'Group Options')]");
         By groupOptionsDropdown = By.ClassName("k-input-inner");
         By clearAllFiltersButton = By.XPath("//button[contains(text(), 'Clear all Filters')]");
-        By searchByPartIdTextbox = By.XPath("//input[contains(title, 'Search by PartId')]");
+        By searchByPartIdTextbox = By.XPath("//span[contains(title, 'Search by PartId')]");
         By editRecordButton = By.XPath("//span[contains(text(), 'Edit')]");
         By pageOneLink = By.XPath("//button[contains(title, 'Page 1')]");
         By pageTwoLink = By.XPath("//button[contains(title, 'Page 2')]");
@@ -167,6 +167,18 @@ namespace SeleniumFramework.Pages.CertDbPages
             EditRecordButton.Click();
 
             return new EditProductPage();
+        }
+
+        public bool AreProductPageControlsVisible()
+        {
+            if (TitleLabel.Visible && AddNewProductButton.Visible && ClearAllFiltersButton.Visible && EditRecordButton.Visible)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool IsGroupOptionLabelVisible()
