@@ -14,11 +14,13 @@ namespace SeleniumFramework.Pages.CertDbPages
         By groupSectionLabel = By.XPath("//p[contains(text(), 'Group Options')]");
         By groupOptionsDropdown = By.ClassName("k-input-inner");
         By clearAllFiltersButton = By.XPath("//button[contains(text(), 'Clear all Filters')]");
-        By searchByPartIdTextbox = By.XPath("//*[@id='productsGrid']/div[1]/div[3]/span/input");
+        By searchByPartIdTextbox = By.XPath("//input[contains(@title, 'Search by')]");
+        By regionFilterIcon = By.XPath("//a[contains(@title, 'Region')]");
+        By productTypeFilterIcon = By.XPath("//a[contains(@title, 'Product')]");
         By editRecordButton = By.XPath("//span[contains(text(), 'Edit')]");
-        By pageOneLink = By.XPath("//button[contains(title, 'Page 1')]");
-        By pageTwoLink = By.XPath("//button[contains(title, 'Page 2')]");
-        By pageThreeLink = By.XPath("//button[contains(title, 'Page 3')]");
+        By pageOneLink = By.XPath("//button[contains(@title, 'Page 1')]");
+        By pageTwoLink = By.XPath("//button[contains(@title, 'Page 2')]");
+        By pageThreeLink = By.XPath("//button[contains(@title, 'Page 3')]");
         By privacyPolicyPageLink = By.XPath("//a[contains(text(), 'Privacy')]");
 
         public LabelBase TitleLabel
@@ -88,6 +90,26 @@ namespace SeleniumFramework.Pages.CertDbPages
                 IWebElement element = waitFor.Element(searchByPartIdTextbox);
 
                 return new TextboxBase(element);
+            }
+        }
+
+        public ButtonBase RegionFilterIcon
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(regionFilterIcon);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase ProductTypeFilterIcon
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(productTypeFilterIcon);
+
+                return new ButtonBase(element);
             }
         }
 
@@ -196,6 +218,20 @@ namespace SeleniumFramework.Pages.CertDbPages
             string searchByPartIdToolTip = SearchByPartIdTextbox.GetTitleAttribute();
 
             return searchByPartIdToolTip.Equals("Search by PartId");
+        }
+
+        public bool VerifyRegionFilterTooltip()
+        {
+            string regionToolTip = RegionFilterIcon.GetTitleAttribute();
+
+            return regionToolTip.Equals("Region filter column settings");
+        }
+
+        public bool VerifyProdctFilterTooltip()
+        {
+            string regionToolTip = ProductTypeFilterIcon.GetTitleAttribute();
+
+            return regionToolTip.Equals("Product Type filter column settings");
         }
     }
 }
