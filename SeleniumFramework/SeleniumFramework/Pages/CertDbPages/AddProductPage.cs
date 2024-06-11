@@ -28,6 +28,8 @@ namespace SeleniumFramework.Pages.CertDbPages
         By widthTextbox = By.Id("Width");
         By heightTextbox = By.Id("Height");
         By commentsTextbox = By.Id("Comments");
+        By increaseValueButton = By.XPath("//button[contains(@title, 'Increase')]");
+        By decreaseValueButton = By.XPath("//button[contains(@title, 'Decrease')]");
         By secondarySpecificationsTab = By.XPath("//div[contains(text(), 'Secondary Specifications')]");
         By crossReferencesTab = By.XPath("//div[contains(text(), 'Cross References')]");
         By submitTwoButton = By.Id("productSubmit2");
@@ -234,6 +236,186 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
+        public ButtonBase IncreaseValueButtonZero
+        {
+            get
+            {
+                IWebElement element = waitFor.ElementsArray(increaseValueButton, 0);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase DecreaseValueButtonZero
+        {
+            get
+            {
+                IWebElement element = waitFor.ElementsArray(decreaseValueButton, 0);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase IncreaseValueButtonOne
+        {
+            get
+            {
+                IWebElement element = waitFor.ElementsArray(increaseValueButton, 1);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase DecreaseValueButtonOne
+        {
+            get
+            {
+                IWebElement element = waitFor.ElementsArray(decreaseValueButton, 1);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase IncreaseValueButtonTwo
+        {
+            get
+            {
+                IWebElement element = waitFor.ElementsArray(increaseValueButton, 2);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase DecreaseValueButtonTwo
+        {
+            get
+            {
+                IWebElement element = waitFor.ElementsArray(decreaseValueButton, 2);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase IncreaseValueButtonThree
+        {
+            get
+            {
+                IWebElement element = waitFor.ElementsArray(increaseValueButton, 3);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase DecreaseValueButtonThree
+        {
+            get
+            {
+                IWebElement element = waitFor.ElementsArray(decreaseValueButton, 3);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase IncreaseValueButtonFour
+        {
+            get
+            {
+                IWebElement element = waitFor.ElementsArray(increaseValueButton, 4);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase DecreaseValueButtonFour
+        {
+            get
+            {
+                IWebElement element = waitFor.ElementsArray(decreaseValueButton, 4);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase IncreaseValueButtonFive
+        {
+            get
+            {
+                IWebElement element = waitFor.ElementsArray(increaseValueButton, 5);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase DecreaseValueButtonFive
+        {
+            get
+            {
+                IWebElement element = waitFor.ElementsArray(decreaseValueButton, 5);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase IncreaseValueButtonSix
+        {
+            get
+            {
+                IWebElement element = waitFor.ElementsArray(increaseValueButton, 6);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase DecreaseValueButtonSix
+        {
+            get
+            {
+                IWebElement element = waitFor.ElementsArray(decreaseValueButton, 6);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase IncreaseValueButtonSeven
+        {
+            get
+            {
+                IWebElement element = waitFor.ElementsArray(increaseValueButton, 7);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase DecreaseValueButtonSeven
+        {
+            get
+            {
+                IWebElement element = waitFor.ElementsArray(decreaseValueButton, 7);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase IncreaseValueButtonEight
+        {
+            get
+            {
+                IWebElement element = waitFor.ElementsArray(increaseValueButton, 8);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase DecreaseValueButtonEight
+        {
+            get
+            {
+                IWebElement element = waitFor.ElementsArray(decreaseValueButton, 8);
+
+                return new ButtonBase(element);
+            }
+        }
+
         public ButtonBase SecondarySpecificationsTab
         {
             get
@@ -254,7 +436,7 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
-        public ButtonBase DubmitTwoButton
+        public ButtonBase SubmitTwoButton
         {
             get
             {
@@ -276,7 +458,14 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public bool IsAddProductPageLoaded()
         {
-            return AddProductLabel.Visible;
+            if (AddProductLabel.Visible && CertificationsTab.Visible && PrimarySpecificationsTab.Visible && SecondarySpecificationsTab.Visible && CrossReferencesTab.Visible && SubmitFormsOneButton.Visible && CancelProductTwoButton.Visible)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -30,6 +30,28 @@ namespace SeleniumFramework.SeleniumFramework.Helpers
             return elements[0];
         }
 
+        public IWebElement ElementsArray(By locator, int positionToReturn, int secondsToWait = 30)
+        {
+            IWebElement[] elements = SF.Driver.FindElements(locator).ToArray();
+
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
+
+            while (elements.Length == 0 && watch.Elapsed.TotalSeconds < secondsToWait)
+            {
+                Thread.Sleep(500);
+                elements = SF.Driver.FindElements(locator).ToArray();
+            }
+
+            if (elements.Length == 0)
+                throw new NotFoundException("Element(s) were not found after: " + secondsToWait + " seconds.");
+
+            if (positionToReturn > elements.Length - 1)
+                throw new Exception("The requested position value," + positionToReturn + ",is outside of the bounds of the array.");
+
+            return elements[positionToReturn];
+        }
+
         /// <summary>
         /// Searches a heirarchy for a specific element.  Lower count in list = highest level of tree.
         /// </summary>
