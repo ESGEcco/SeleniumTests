@@ -23,6 +23,8 @@ namespace SeleniumFramework.Pages.CertDbPages
         By pageThreeLink = By.XPath("//button[contains(@title, 'Page 3')]");
         By privacyPolicyPageLink = By.XPath("//a[contains(text(), 'Privacy')]");
 
+        #region ControlDefinitions
+
         public LabelBase TitleLabel
         {
             get
@@ -190,6 +192,8 @@ namespace SeleniumFramework.Pages.CertDbPages
 
             return new EditProductPage();
         }
+
+        #endregion ControlDefinitions
 
         public bool AreProductPageControlsVisible()
         {

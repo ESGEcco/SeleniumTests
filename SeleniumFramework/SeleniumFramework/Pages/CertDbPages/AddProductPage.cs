@@ -2,6 +2,7 @@
 using SeleniumFramework.SeleniumFramework.Controls;
 using SeleniumFramework.SeleniumFramework.Helpers;
 using System.Configuration;
+using System.Threading;
 
 namespace SeleniumFramework.Pages.CertDbPages
 {
@@ -14,7 +15,9 @@ namespace SeleniumFramework.Pages.CertDbPages
         By submitFormsOneButton = By.Id("productSubmit1");
         By cancelOneButton = By.XPath("//span[contains(text(), 'Cancel')]");
         By certificationsTab = By.XPath("//div[contains(text(), 'Certifications')]");
+        By certificationsTabSection = By.Id("Certifications");
         By primarySpecificationsTab = By.XPath("//div[contains(text(), 'Primary Specifications')]");
+        By primarySpecificationsTabSection = By.Id("PrimarySpecifications");
         By currentTextbox = By.Id("Current");
         By powerTextbox = By.Id("Power");
         By lowTempTextbox = By.Id("LowTemp");
@@ -31,10 +34,13 @@ namespace SeleniumFramework.Pages.CertDbPages
         By increaseValueButton = By.XPath("//button[contains(@title, 'Increase')]");
         By decreaseValueButton = By.XPath("//button[contains(@title, 'Decrease')]");
         By secondarySpecificationsTab = By.XPath("//div[contains(text(), 'Secondary Specifications')]");
+        By secondarySpecificationsTabSection = By.Id("SecondarySpecifications");
         By crossReferencesTab = By.XPath("//div[contains(text(), 'Cross References')]");
+        By crossReferencesTabSection = By.Id("CrossReferences");
         By submitTwoButton = By.Id("productSubmit2");
         By cancelProductTwoButton = By.Id("cancelSubmit2");
 
+        #region ControlDefinitions
 
         public LabelBase AddProductLabel
         {
@@ -96,6 +102,16 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
+        public LabelBase CertificationsTabSection
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(certificationsTabSection);
+
+                return new LabelBase(element);
+            }
+        }
+
         public ButtonBase PrimarySpecificationsTab
         {
             get
@@ -103,6 +119,16 @@ namespace SeleniumFramework.Pages.CertDbPages
                 IWebElement element = waitFor.Element(primarySpecificationsTab);
 
                 return new ButtonBase(element);
+            }
+        }
+
+        public LabelBase PrimarySpecificationsTabSection
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(primarySpecificationsTabSection);
+
+                return new LabelBase(element);
             }
         }
 
@@ -426,6 +452,16 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
+        public LabelBase SecondarySpecificationsTabSection
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(secondarySpecificationsTabSection);
+
+                return new LabelBase(element);
+            }
+        }
+
         public ButtonBase CrossReferencesTab
         {
             get
@@ -433,6 +469,16 @@ namespace SeleniumFramework.Pages.CertDbPages
                 IWebElement element = waitFor.Element(crossReferencesTab);
 
                 return new ButtonBase(element);
+            }
+        }
+
+        public LabelBase CrossReferencesTabSection
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(crossReferencesTabSection);
+
+                return new LabelBase(element);
             }
         }
 
@@ -456,9 +502,30 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
+        #endregion ControlDefinitions
+
         public bool IsAddProductPageLoaded()
         {
             if (AddProductLabel.Visible && CertificationsTab.Visible && PrimarySpecificationsTab.Visible && SecondarySpecificationsTab.Visible && CrossReferencesTab.Visible && SubmitFormsOneButton.Visible && CancelProductTwoButton.Visible)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool VerifyCollapseAll()
+        {
+            ExpandCollapseAllButton.Click();
+
+            while (CertificationsTabSection.Visible)
+            {
+                Thread.Sleep(250);
+            }
+
+            if (!CertificationsTabSection.Visible && !PrimarySpecificationsTabSection.Visible && !SecondarySpecificationsTabSection.Visible && !CrossReferencesTabSection.Visible)
             {
                 return true;
             }
