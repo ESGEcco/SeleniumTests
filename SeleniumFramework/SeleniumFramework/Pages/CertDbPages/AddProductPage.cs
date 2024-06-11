@@ -534,5 +534,24 @@ namespace SeleniumFramework.Pages.CertDbPages
                 return false;
             }
         }
+
+        public bool VerifyCertificationsTabSectionCollapse()
+        {
+            CertificationsTab.Click();
+
+            while (CertificationsTabSection.Visible)
+            {
+                Thread.Sleep(250);
+            }
+
+            if (!CertificationsTabSection.Visible)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

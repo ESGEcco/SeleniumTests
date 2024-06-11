@@ -344,5 +344,24 @@ namespace SeleniumFramework
                 throw new Exception(e.Message);
             }
         }
+
+        [TestMethod]
+        public void VerifyAddProductCertificationsTabCollapse()
+        {
+            try
+            {
+                LoginPage loginPage = SF.OpenSites.OpenCertDB();
+                ProductPage productPage = loginPage.Login();
+                AddProductPage addProductPage = productPage.NavigateToAddProductPage();
+
+                Assert.IsTrue(addProductPage.VerifyCertificationsTabSectionCollapse());
+            }
+            catch (Exception e)
+            {
+                CaptureScreenshot();
+
+                throw new Exception(e.Message);
+            }
+        }
     }
 }
