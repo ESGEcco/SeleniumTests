@@ -572,5 +572,43 @@ namespace SeleniumFramework.Pages.CertDbPages
                 return false;
             }
         }
+
+        public bool VerifySecondarySpecificationsTabSectionCollapse()
+        {
+            SecondarySpecificationsTab.Click();
+
+            while (SecondarySpecificationsTabSection.Visible)
+            {
+                Thread.Sleep(250);
+            }
+
+            if (!SecondarySpecificationsTabSection.Visible)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool VerifyCrossReferencesTabSectionCollapse()
+        {
+            CrossReferencesTab.Click();
+
+            while (CrossReferencesTabSection.Visible)
+            {
+                Thread.Sleep(250);
+            }
+
+            if (!CrossReferencesTabSection.Visible)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

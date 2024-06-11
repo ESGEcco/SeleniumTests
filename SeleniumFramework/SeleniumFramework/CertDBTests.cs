@@ -365,7 +365,7 @@ namespace SeleniumFramework
         }
 
         [TestMethod]
-        public void VerifyAddProductsPrimarySpecifications()
+        public void VerifyAddProductsPrimarySpecificationsCollapse()
         {
             try
             {
@@ -374,6 +374,44 @@ namespace SeleniumFramework
                 AddProductPage addProductPage = productPage.NavigateToAddProductPage();
 
                 Assert.IsTrue(addProductPage.VerifyPrimarySpecificationsTabSectionCollapse());
+            }
+            catch (Exception e)
+            {
+                CaptureScreenshot();
+
+                throw new Exception(e.Message);
+            }
+        }
+
+        [TestMethod]
+        public void VerifyAddProductsSecondarySpecificationsCollapse()
+        {
+            try
+            {
+                LoginPage loginPage = SF.OpenSites.OpenCertDB();
+                ProductPage productPage = loginPage.Login();
+                AddProductPage addProductPage = productPage.NavigateToAddProductPage();
+
+                Assert.IsTrue(addProductPage.VerifySecondarySpecificationsTabSectionCollapse());
+            }
+            catch (Exception e)
+            {
+                CaptureScreenshot();
+
+                throw new Exception(e.Message);
+            }
+        }
+
+        [TestMethod]
+        public void VerifyAddProductsCrossReferencesCollapse()
+        {
+            try
+            {
+                LoginPage loginPage = SF.OpenSites.OpenCertDB();
+                ProductPage productPage = loginPage.Login();
+                AddProductPage addProductPage = productPage.NavigateToAddProductPage();
+
+                Assert.IsTrue(addProductPage.VerifyCrossReferencesTabSectionCollapse());
             }
             catch (Exception e)
             {
