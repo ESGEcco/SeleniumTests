@@ -39,6 +39,13 @@ namespace SeleniumFramework.Pages.CertDbPages
         By crossReferencesTabSection = By.Id("CrossReferences");
         By submitTwoButton = By.Id("productSubmit2");
         By cancelProductTwoButton = By.Id("cancelSubmit2");
+        By spl1Textbox = By.Id("Spl1");
+        By spl2Textbox = By.Id("Spl2");
+        By spl3Textbox = By.Id("Spl3");
+        By frequencyTextbox = By.Id("Frequency");
+        By toleranceTextbox = By.Id("Tolerance");
+        By mountingTextbox = By.Id("Mounting");
+        By housingMaterialTextbox = By.Id("HousingMaterial");
 
         #region ControlDefinitions
 
@@ -82,7 +89,7 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
-        public ButtonBase CancelOneButton
+        public ButtonBase CancelProductOneButton
         {
             get
             {
@@ -502,6 +509,56 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
+        public TextboxBase Spl1Textbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(spl1Textbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase Spl2Textbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(spl2Textbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase Spl3Textbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(spl3Textbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase FrequencyTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(frequencyTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase ToleranceTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(toleranceTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
         #endregion ControlDefinitions
 
         public bool IsAddProductPageLoaded()
@@ -602,6 +659,32 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
 
             if (!CrossReferencesTabSection.Visible)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public ProductPage CancelButtonReturnsToProductPage()
+        {
+            CancelProductOneButton.Click();
+
+            return new ProductPage();
+        }
+
+        public AddProductPage SelectAlarmType()
+        {
+            SelectATypeDropdown.SelectByText("Alarm");
+
+            return new AddProductPage();
+        }
+
+        public bool AreAlarmControlsVisible()
+        {
+            if (Spl1Textbox.Visible)
             {
                 return true;
             }

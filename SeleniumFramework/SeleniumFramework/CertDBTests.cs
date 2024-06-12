@@ -420,5 +420,26 @@ namespace SeleniumFramework
                 throw new Exception(e.Message);
             }
         }
+
+        [TestMethod]
+        public void VerifyCancelButtonReturnsToProductPage()
+        {
+            try
+            {
+                LoginPage loginPage = SF.OpenSites.OpenCertDB();
+                ProductPage productPage = loginPage.Login();
+                AddProductPage addProductPage = productPage.NavigateToAddProductPage();
+
+                productPage = addProductPage.CancelButtonReturnsToProductPage();
+
+                Assert.IsTrue(productPage.IsProductPageDisplayed());
+            }
+            catch (Exception e)
+            {
+                CaptureScreenshot();
+
+                throw new Exception(e.Message);
+            }
+        }
     }
 }
