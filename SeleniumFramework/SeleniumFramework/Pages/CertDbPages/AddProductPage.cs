@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
 using SeleniumFramework.SeleniumFramework.Controls;
 using SeleniumFramework.SeleniumFramework.Helpers;
-using System.Configuration;
 using System.Threading;
 
 namespace SeleniumFramework.Pages.CertDbPages
@@ -12,6 +11,7 @@ namespace SeleniumFramework.Pages.CertDbPages
         By addProductLabel = By.XPath("//h1[contains(text(), 'Add Product')]");
         By selectATypeButton = By.XPath("//span[contains(text(), 'Select a')]");
         By alarmTypeSelectionButton = By.XPath("//span[contains(text(), 'Alarm')]");
+        By cameraTypeSelectionButton = By.XPath("//span[contains(text(), 'Camera')]");
         By expandCollapseAllButton = By.Id("expandCollapse");
         By submitFormsOneButton = By.Id("productSubmit1");
         By cancelOneButton = By.XPath("//span[contains(text(), 'Cancel')]");
@@ -47,6 +47,18 @@ namespace SeleniumFramework.Pages.CertDbPages
         By toleranceTextbox = By.Id("Tolerance");
         By mountingTextbox = By.Id("Mounting");
         By housingMaterialTextbox = By.Id("HousingMaterial");
+        By cameraMountingTextbox = By.Id("CameraMounting");
+        By monitorMountingTextbox = By.Id("MonitorMounting");
+        By colorSystemTextbox = By.Id("ColorSystem");
+        By screenSizeTextbox = By.Id("ScreenSize");
+        By screenRatioTextbox = By.Id("ScreenRatio");
+        By resolutionTextbox = By.Id("Resolution");
+        By lensAngleTextbox = By.Id("LensAngle");
+        By infraRedLedTextbox = By.Id("InfraredLed");
+        By wirelessSlider = By.Id("Wireless");
+        By audioInputSlider = By.Id("AudioInput");
+        By dayNightSensorSlider = By.Id("DayNightSensor");
+        By mirrorNormalImageSlider = By.Id("MirrorNormalImage");
 
         #region ControlDefinitions
 
@@ -75,6 +87,16 @@ namespace SeleniumFramework.Pages.CertDbPages
             get
             {
                 IWebElement element = waitFor.Element(alarmTypeSelectionButton);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase CameraTypeSelectionButton
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(cameraTypeSelectionButton);
 
                 return new ButtonBase(element);
             }
@@ -590,6 +612,126 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
+        public TextboxBase CameraMountingTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(cameraMountingTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase MonitorMountingTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(monitorMountingTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase ColorSystemTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(colorSystemTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase ScreenSizeTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(screenSizeTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase ScreenRatioTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(screenRatioTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase ResolutionTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(resolutionTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase LensAngleTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(lensAngleTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase InfraRedLedTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(infraRedLedTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public ButtonBase WirelessSlider
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(wirelessSlider);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase AudioInputSlider
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(audioInputSlider);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase DayNightSensorSlider
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(dayNightSensorSlider);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase MirrorNormalImageSlider
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(mirrorNormalImageSlider);
+
+                return new ButtonBase(element);
+            }
+        }
+
         #endregion ControlDefinitions
 
         public bool IsAddProductPageLoaded()
@@ -719,6 +861,29 @@ namespace SeleniumFramework.Pages.CertDbPages
         {
             if (Spl1Textbox.Visible && Spl2Textbox.Visible && Spl3Textbox.Visible && FrequencyTextbox.Visible &&
                 ToleranceTextbox.Visible && MountingTextbox.Visible && HousingMaterialTextbox.Visible)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public AddProductPage SelectCameraType()
+        {
+            SelectATypeButton.Click();
+            CameraTypeSelectionButton.Click();
+
+            return new AddProductPage();
+        }
+
+        public bool AreCameraControlsVisible()
+        {
+            if (CameraMountingTextbox.Visible && MonitorMountingTextbox.Visible && ColorSystemTextbox.Visible &&
+                ScreenSizeTextbox.Visible && ScreenRatioTextbox.Visible && ResolutionTextbox.Visible &&
+                LensAngleTextbox.Visible && InfraRedLedTextbox.Visible && WirelessSlider.Visible && AudioInputSlider.Visible &&
+                DayNightSensorSlider.Visible && MirrorNormalImageSlider.Visible)
             {
                 return true;
             }
