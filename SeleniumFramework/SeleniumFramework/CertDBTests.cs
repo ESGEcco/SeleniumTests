@@ -441,5 +441,26 @@ namespace SeleniumFramework
                 throw new Exception(e.Message);
             }
         }
+
+        [TestMethod]
+        public void VerifyAlarmTypeControls()
+        {
+            try
+            {
+                LoginPage loginPage = SF.OpenSites.OpenCertDB();
+                ProductPage productPage = loginPage.Login();
+                AddProductPage addProductPage = productPage.NavigateToAddProductPage();
+
+                addProductPage = addProductPage.SelectAlarmType();
+
+                Assert.IsTrue(addProductPage.AreAlarmControlsVisible());
+            }
+            catch (Exception e)
+            {
+                CaptureScreenshot();
+
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

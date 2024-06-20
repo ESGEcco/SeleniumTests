@@ -10,7 +10,8 @@ namespace SeleniumFramework.Pages.CertDbPages
     {
         WaitFor waitFor = new WaitFor();
         By addProductLabel = By.XPath("//h1[contains(text(), 'Add Product')]");
-        By selectATypeDropdown = By.XPath("//span[contains(text(), 'Select a')]");
+        By selectATypeButton = By.XPath("//span[contains(text(), 'Select a')]");
+        By alarmTypeSelectionButton = By.XPath("//span[contains(text(), 'Alarm')]");
         By expandCollapseAllButton = By.Id("expandCollapse");
         By submitFormsOneButton = By.Id("productSubmit1");
         By cancelOneButton = By.XPath("//span[contains(text(), 'Cancel')]");
@@ -59,13 +60,23 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
-        public DropdownBase SelectATypeDropdown
+        public ButtonBase SelectATypeButton
         {
             get
             {
-                IWebElement element = waitFor.Element(selectATypeDropdown);
+                IWebElement element = waitFor.Element(selectATypeButton);
 
-                return new DropdownBase(element);
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase AlarmTypeSelectionButton
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(alarmTypeSelectionButton);
+
+                return new ButtonBase(element);
             }
         }
 
@@ -559,11 +570,32 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
+        public TextboxBase MountingTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(mountingTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase HousingMaterialTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(housingMaterialTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
         #endregion ControlDefinitions
 
         public bool IsAddProductPageLoaded()
         {
-            if (AddProductLabel.Visible && CertificationsTab.Visible && PrimarySpecificationsTab.Visible && SecondarySpecificationsTab.Visible && CrossReferencesTab.Visible && SubmitFormsOneButton.Visible && CancelProductTwoButton.Visible)
+            if (AddProductLabel.Visible && CertificationsTab.Visible && PrimarySpecificationsTab.Visible && SecondarySpecificationsTab.Visible
+                && CrossReferencesTab.Visible && SubmitFormsOneButton.Visible && CancelProductTwoButton.Visible)
             {
                 return true;
             }
@@ -677,14 +709,16 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public AddProductPage SelectAlarmType()
         {
-            SelectATypeDropdown.SelectByText("Alarm");
+            SelectATypeButton.Click();
+            AlarmTypeSelectionButton.Click();
 
             return new AddProductPage();
         }
 
         public bool AreAlarmControlsVisible()
         {
-            if (Spl1Textbox.Visible)
+            if (Spl1Textbox.Visible && Spl2Textbox.Visible && Spl3Textbox.Visible && FrequencyTextbox.Visible &&
+                ToleranceTextbox.Visible && MountingTextbox.Visible && HousingMaterialTextbox.Visible)
             {
                 return true;
             }
