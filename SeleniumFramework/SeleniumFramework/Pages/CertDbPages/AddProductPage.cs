@@ -750,13 +750,10 @@ namespace SeleniumFramework.Pages.CertDbPages
         public bool VerifyCollapseAll()
         {
             ExpandCollapseAllButton.Click();
+            CertificationsTabSection.WaitForNotVisible();
 
-            while (CertificationsTabSection.Visible)
-            {
-                Thread.Sleep(250);
-            }
-
-            if (!CertificationsTabSection.Visible && !PrimarySpecificationsTabSection.Visible && !SecondarySpecificationsTabSection.Visible && !CrossReferencesTabSection.Visible)
+            if (!CertificationsTabSection.Visible && !PrimarySpecificationsTabSection.Visible && 
+                !SecondarySpecificationsTabSection.Visible && !CrossReferencesTabSection.Visible)
             {
                 return true;
             }
@@ -769,11 +766,7 @@ namespace SeleniumFramework.Pages.CertDbPages
         public bool VerifyCertificationsTabSectionCollapse()
         {
             CertificationsTab.Click();
-
-            while (CertificationsTabSection.Visible)
-            {
-                Thread.Sleep(250);
-            }
+            CertificationsTabSection.WaitForNotVisible();
 
             if (!CertificationsTabSection.Visible)
             {
@@ -788,11 +781,7 @@ namespace SeleniumFramework.Pages.CertDbPages
         public bool VerifyPrimarySpecificationsTabSectionCollapse()
         {
             PrimarySpecificationsTab.Click();
-
-            while (PrimarySpecificationsTabSection.Visible)
-            {
-                Thread.Sleep(250);
-            }
+            PrimarySpecificationsTabSection.WaitForNotVisible();
 
             if (!PrimarySpecificationsTabSection.Visible)
             {
@@ -807,11 +796,7 @@ namespace SeleniumFramework.Pages.CertDbPages
         public bool VerifySecondarySpecificationsTabSectionCollapse()
         {
             SecondarySpecificationsTab.Click();
-
-            while (SecondarySpecificationsTabSection.Visible)
-            {
-                Thread.Sleep(250);
-            }
+            SecondarySpecificationsTabSection.WaitForNotVisible();
 
             if (!SecondarySpecificationsTabSection.Visible)
             {
@@ -826,11 +811,7 @@ namespace SeleniumFramework.Pages.CertDbPages
         public bool VerifyCrossReferencesTabSectionCollapse()
         {
             CrossReferencesTab.Click();
-
-            while (CrossReferencesTabSection.Visible)
-            {
-                Thread.Sleep(250);
-            }
+            CrossReferencesTabSection.WaitForNotVisible();
 
             if (!CrossReferencesTabSection.Visible)
             {
@@ -873,6 +854,7 @@ namespace SeleniumFramework.Pages.CertDbPages
         public AddProductPage SelectCameraType()
         {
             SelectATypeButton.Click();
+            CameraTypeSelectionButton.WaitForClickable();
             CameraTypeSelectionButton.Click();
 
             return new AddProductPage();

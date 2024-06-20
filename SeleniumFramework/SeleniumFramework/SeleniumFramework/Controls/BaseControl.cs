@@ -48,6 +48,22 @@ namespace SeleniumFramework.SeleniumFramework.Controls
             }
         }
 
+        public void WaitForNotVisible(int secondsToWait = 30)
+        {
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
+
+            if (Visible && watch.Elapsed.TotalSeconds < secondsToWait)
+            {
+                Thread.Sleep(1000);
+            }
+
+            if (Visible)
+            {
+                throw new Exception("Element was still visible after: " + secondsToWait + " seconds");
+            }
+        }
+
         public bool Enabled
         {
             get
