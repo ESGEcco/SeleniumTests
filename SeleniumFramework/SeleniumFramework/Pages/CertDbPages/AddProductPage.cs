@@ -957,6 +957,15 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         #endregion ControlInstantiations
 
+        public EditProductPage NavigateToEditProductPageAfterType()
+        {
+            SelectATypeButton.Click();
+            AlarmTypeSelectionButton.Click();
+            SubmitFormsOneButton.Click();
+
+            return new EditProductPage();
+        }
+        
         public bool IsAddProductPageLoaded()
         {
             if (AddProductLabel.Visible && CertificationsTab.Visible && PrimarySpecificationsTab.Visible && SecondarySpecificationsTab.Visible
