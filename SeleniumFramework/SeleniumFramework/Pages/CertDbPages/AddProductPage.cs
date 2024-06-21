@@ -1,12 +1,13 @@
 ﻿using OpenQA.Selenium;
 using SeleniumFramework.SeleniumFramework.Controls;
 using SeleniumFramework.SeleniumFramework.Helpers;
-using System.Threading;
 
 namespace SeleniumFramework.Pages.CertDbPages
 {
     public class AddProductPage
     {
+        #region ControlDefinitions
+
         WaitFor waitFor = new WaitFor();
         By addProductLabel = By.XPath("//h1[contains(text(), 'Add Product')]");
         By selectATypeButton = By.XPath("//span[contains(text(), 'Select a')]");
@@ -14,6 +15,7 @@ namespace SeleniumFramework.Pages.CertDbPages
         By cameraTypeSelectionButton = By.XPath("//span[contains(text(), 'Camera')]");
         By lightTypeSelectionButton = By.XPath("//span[contains(text(), 'Light')]");
         By sirenSpeakerSelectionButton = By.XPath("//span[contains(text(), 'Siren Speaker')]");
+        By workLampSelectionButton = By.XPath("//span[contains(text(), 'Work Lamp')]");
         By expandCollapseAllButton = By.Id("expandCollapse");
         By submitFormsOneButton = By.Id("productSubmit1");
         By cancelOneButton = By.XPath("//span[contains(text(), 'Cancel')]");
@@ -69,8 +71,19 @@ namespace SeleniumFramework.Pages.CertDbPages
         By ratedPowerMaximumTextbox = By.Id("RatedPowerMaximum");
         By sirenSpeakerMountingTextbox = By.Id("Mounting");
         By sirenSpeakerHousingMaterialTextbox = By.Id("HousingMaterial");
+        By calculatedLumensTextbox = By.Id("CalculatedLumens");
+        By rawLumensTextbox = By.Id("RawLumens");
+        By effectiveLumensTextbox = By.Id("EffectiveLumens");
+        By illuminanceTextbox = By.Id("Illuminance");
+        By intensityTextbox = By.Id("Intensity");
+        By cctTextbox = By.Id("Cct");
+        By workLampMountingTextbox = By.Id("Mounting");
+        By workLampBaseMaterialTextbox = By.Id("BaseMaterial");
+        By lensMaterialTextbox = By.Id("LensMaterial");
 
-        #region ControlDefinitions
+        #endregion ControlDefinitions
+
+        #region ControlInstantiations
 
         public LabelBase AddProductLabel
         {
@@ -127,6 +140,16 @@ namespace SeleniumFramework.Pages.CertDbPages
             get
             {
                 IWebElement element = waitFor.Element(sirenSpeakerSelectionButton);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase WorkLampSelectionButton
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(workLampSelectionButton);
 
                 return new ButtonBase(element);
             }
@@ -842,7 +865,97 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
-        #endregion ControlDefinitions
+        public TextboxBase CalculatedLumensTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(calculatedLumensTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase RawLumensTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(rawLumensTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase EffectiveLumensTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(effectiveLumensTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase IlluminanceTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(illuminanceTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase IntensityTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(intensityTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase CctTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(cctTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase WorkLampMountingTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(workLampMountingTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase WorkLampBaseMaterialTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(workLampBaseMaterialTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase LensMaterialTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(lensMaterialTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        #endregion ControlInstantiations
 
         public bool IsAddProductPageLoaded()
         {
@@ -1019,6 +1132,29 @@ namespace SeleniumFramework.Pages.CertDbPages
         {
             if (StandbyCurrentTextbox.Visible && RatedPowerMaximumTextbox.Visible &&
                 SirenSpeakerMountingTextbox.Visible && SirenSpeakerHousingMaterialTextbox.Visible)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public AddProductPage SelectWorkLampType()
+        {
+            SelectATypeButton.Click();
+            WorkLampSelectionButton.WaitForClickable();
+            WorkLampSelectionButton.Click();
+
+            return new AddProductPage();
+        }
+
+        public bool AreWorkLampControlsVisible()
+        {
+            if (CalculatedLumensTextbox.Visible && RawLumensTextbox.Visible && EffectiveLumensTextbox.Visible &&
+                IlluminanceTextbox.Visible && IntensityTextbox.Visible && CctTextbox.Visible && WorkLampMountingTextbox.Visible &&
+                BaseMaterialTextbox.Visible && LensMaterialTextbox.Visible)
             {
                 return true;
             }
