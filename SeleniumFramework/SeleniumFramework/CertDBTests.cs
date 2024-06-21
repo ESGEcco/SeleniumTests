@@ -483,5 +483,47 @@ namespace SeleniumFramework
                 throw new Exception(e.Message);
             }
         }
+
+        [TestMethod]
+        public void VerifyLightTypeControls()
+        {
+            try
+            {
+                LoginPage loginPage = SF.OpenSites.OpenCertDB();
+                ProductPage productPage = loginPage.Login();
+                AddProductPage addProductPage = productPage.NavigateToAddProductPage();
+
+                addProductPage = addProductPage.SelectLightType();
+
+                Assert.IsTrue(addProductPage.AreLightControlsVisible());
+            }
+            catch (Exception e)
+            {
+                CaptureScreenshot();
+
+                throw new Exception(e.Message);
+            }
+        }
+
+        [TestMethod]
+        public void VerifySirenSpeakerTypeControls()
+        {
+            try
+            {
+                LoginPage loginPage = SF.OpenSites.OpenCertDB();
+                ProductPage productPage = loginPage.Login();
+                AddProductPage addProductPage = productPage.NavigateToAddProductPage();
+
+                addProductPage = addProductPage.SelectSirenSpeakerType();
+
+                Assert.IsTrue(addProductPage.AreSirenSpeakerControlsVisible());
+            }
+            catch (Exception e)
+            {
+                CaptureScreenshot();
+
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

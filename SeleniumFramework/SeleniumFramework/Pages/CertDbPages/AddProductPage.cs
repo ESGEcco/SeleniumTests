@@ -12,6 +12,8 @@ namespace SeleniumFramework.Pages.CertDbPages
         By selectATypeButton = By.XPath("//span[contains(text(), 'Select a')]");
         By alarmTypeSelectionButton = By.XPath("//span[contains(text(), 'Alarm')]");
         By cameraTypeSelectionButton = By.XPath("//span[contains(text(), 'Camera')]");
+        By lightTypeSelectionButton = By.XPath("//span[contains(text(), 'Light')]");
+        By sirenSpeakerSelectionButton = By.XPath("//span[contains(text(), 'Siren Speaker')]");
         By expandCollapseAllButton = By.Id("expandCollapse");
         By submitFormsOneButton = By.Id("productSubmit1");
         By cancelOneButton = By.XPath("//span[contains(text(), 'Cancel')]");
@@ -59,6 +61,14 @@ namespace SeleniumFramework.Pages.CertDbPages
         By audioInputSlider = By.Id("AudioInput");
         By dayNightSensorSlider = By.Id("DayNightSensor");
         By mirrorNormalImageSlider = By.Id("MirrorNormalImage");
+        By lumensTextbox = By.Id("Lumens");
+        By colorTextbox = By.Id("Color");
+        By lightMountingTextbox = By.Id("Mounting");
+        By baseMaterialTextbox = By.Id("BaseMaterial");
+        By standbyCurrentTextbox = By.Id("StandbyCurrent");
+        By ratedPowerMaximumTextbox = By.Id("RatedPowerMaximum");
+        By sirenSpeakerMountingTextbox = By.Id("Mounting");
+        By sirenSpeakerHousingMaterialTextbox = By.Id("HousingMaterial");
 
         #region ControlDefinitions
 
@@ -97,6 +107,26 @@ namespace SeleniumFramework.Pages.CertDbPages
             get
             {
                 IWebElement element = waitFor.Element(cameraTypeSelectionButton);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase LightTypeSelectionButton
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(lightTypeSelectionButton);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase SirenSpeakerSelectionButton
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(sirenSpeakerSelectionButton);
 
                 return new ButtonBase(element);
             }
@@ -732,6 +762,86 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
+        public TextboxBase LumensTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(lumensTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase ColorTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(colorTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase LightMountingTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(lightMountingTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase BaseMaterialTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(baseMaterialTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase StandbyCurrentTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(standbyCurrentTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase RatedPowerMaximumTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(ratedPowerMaximumTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase SirenSpeakerMountingTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(sirenSpeakerMountingTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
+        public TextboxBase SirenSpeakerHousingMaterialTextbox
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(sirenSpeakerHousingMaterialTextbox);
+
+                return new TextboxBase(element);
+            }
+        }
+
         #endregion ControlDefinitions
 
         public bool IsAddProductPageLoaded()
@@ -866,6 +976,49 @@ namespace SeleniumFramework.Pages.CertDbPages
                 ScreenSizeTextbox.Visible && ScreenRatioTextbox.Visible && ResolutionTextbox.Visible &&
                 LensAngleTextbox.Visible && InfraRedLedTextbox.Visible && WirelessSlider.Visible && AudioInputSlider.Visible &&
                 DayNightSensorSlider.Visible && MirrorNormalImageSlider.Visible)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public AddProductPage SelectLightType()
+        {
+            SelectATypeButton.Click();
+            LightTypeSelectionButton.WaitForClickable();
+            LightTypeSelectionButton.Click();
+
+            return new AddProductPage();
+        }
+
+        public bool AreLightControlsVisible()
+        {
+            if (LumensTextbox.Visible && ColorTextbox.Visible && LightMountingTextbox.Visible && BaseMaterialTextbox.Visible)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public AddProductPage SelectSirenSpeakerType()
+        {
+            SelectATypeButton.Click();
+            SirenSpeakerSelectionButton.WaitForClickable();
+            SirenSpeakerSelectionButton.Click();
+
+            return new AddProductPage();
+        }
+
+        public bool AreSirenSpeakerControlsVisible()
+        {
+            if (StandbyCurrentTextbox.Visible && RatedPowerMaximumTextbox.Visible &&
+                SirenSpeakerMountingTextbox.Visible && SirenSpeakerHousingMaterialTextbox.Visible)
             {
                 return true;
             }
