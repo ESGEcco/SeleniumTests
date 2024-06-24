@@ -4,17 +4,16 @@ using SeleniumFramework.SeleniumFramework.Helpers;
 
 namespace SeleniumFramework.Pages.CertDbPages
 {
-    public class EditAddNewRecordFormPage
+    public class EditCrossReferencesAddNewRecordPage
     {
         #region ControlDefinitions
 
         WaitFor waitFor = new WaitFor();
         By editFormTitleLabel = By.XPath("//span[contains(text(), 'Edit')]");
-        By passedCheckbox = By.Id("HasPassed");
-        By certificationTypeDropdown = By.XPath("//span[contains(@aria-controls, 'CertificationType_listbox')]");
-        By testCertificationsDropdown = By.XPath("//span[contains(@aria-controls, 'CertificationList_listbox')]");
-        By testReportDropdown = By.XPath("//span[contains(@aria-controls, 'ReportList_listbox')]");
-        By editCommentTextbox = By.Id("Comment");
+        By crossReferencesRegionDropdown = By.XPath("//span[contains(@aria-controls, 'Region_listbox')]");
+        By partIdTextbox = By.Id("RegionPartId");
+        By productLineTextbox = By.Id("ProductLine");
+        By statusTextbox = By.Id("Status");
         By editSaveButton = By.XPath("//span[contains(text(), 'Save')]");
         By editCancelButton = By.XPath("//span[contains(text(), 'Cancel')]");
 
@@ -32,51 +31,41 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
-        public CheckboxBase PassedCheckbox
+        public DropdownBase CrossReferencesRegionDropdown
         {
             get
             {
-                IWebElement element = waitFor.Element(passedCheckbox);
-
-                return new CheckboxBase(element);
-            }
-        }
-
-        public DropdownBase CertificationTypeCombobox
-        {
-            get
-            {
-                IWebElement element = waitFor.Element(certificationTypeDropdown);
+                IWebElement element = waitFor.Element(crossReferencesRegionDropdown);
 
                 return new DropdownBase(element);
             }
         }
 
-        public DropdownBase TestCertificationsCombobox
+        public TextboxBase PartIdTextbox
         {
             get
             {
-                IWebElement element = waitFor.Element(testCertificationsDropdown);
+                IWebElement element = waitFor.Element(partIdTextbox);
 
-                return new DropdownBase(element);
+                return new TextboxBase(element);
             }
         }
 
-        public DropdownBase TestReportDropdown
+        public TextboxBase ProductLineTextbox
         {
             get
             {
-                IWebElement element = waitFor.Element(testReportDropdown);
+                IWebElement element = waitFor.Element(productLineTextbox);
 
-                return new DropdownBase(element);
+                return new TextboxBase(element);
             }
         }
 
-        public TextboxBase EditCommentTextbox
+        public TextboxBase StatusTextbox
         {
             get
             {
-                IWebElement element = waitFor.Element(editCommentTextbox);
+                IWebElement element = waitFor.Element(statusTextbox);
 
                 return new TextboxBase(element);
             }

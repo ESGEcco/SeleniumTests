@@ -620,9 +620,51 @@ namespace SeleniumFramework
                 ProductPage productPage = loginPage.Login();
                 AddProductPage addProductPage = productPage.NavigateToAddProductPage();
                 EditProductPage editProductPage = addProductPage.NavigateToEditProductPageAfterAlarmType();
-                EditAddNewRecordFormPage editAddNewRecordFormPage = editProductPage.NavigateToEditAddNewRecordFormPage();
+                EditCertificationsAddNewRecordFormPage editAddNewRecordFormPage = editProductPage.NavigateToEditAddNewRecordFormPage();
                 
                 Assert.IsTrue(editAddNewRecordFormPage.IsEditAddNewRecordFormDisplayed());
+            }
+            catch (Exception e)
+            {
+                CaptureScreenshot();
+
+                throw new Exception(e.Message);
+            }
+        }
+
+        [TestMethod]
+        public void VerifyEditProductCrossReferencesAddNewProductFormIsDisplayed()
+        {
+            try
+            {
+                LoginPage loginPage = SF.OpenSites.OpenCertDB();
+                ProductPage productPage = loginPage.Login();
+                AddProductPage addProductPage = productPage.NavigateToAddProductPage();
+                EditProductPage editProductPage = addProductPage.NavigateToEditProductPageAfterAlarmType();
+                EditCrossReferencesAddNewRecordPage editCrossReferencesAddNewRecordPage = editProductPage.NavigateToEditCrossReferencesAddNewRecordPage();
+
+                Assert.IsTrue(editCrossReferencesAddNewRecordPage.IsEditAddNewRecordFormDisplayed());
+            }
+            catch (Exception e)
+            {
+                CaptureScreenshot();
+
+                throw new Exception(e.Message);
+            }
+        }
+
+        [TestMethod]
+        public void VerifyEditProductDuplicateProductFormIsDisplayed()
+        {
+            try
+            {
+                LoginPage loginPage = SF.OpenSites.OpenCertDB();
+                ProductPage productPage = loginPage.Login();
+                AddProductPage addProductPage = productPage.NavigateToAddProductPage();
+                EditProductPage editProductPage = addProductPage.NavigateToEditProductPageAfterAlarmType();
+                EditProductDuplicateProductPage editProductDuplicateProductPage = editProductPage.NavigateToDuplicateProductPage();
+
+                Assert.IsTrue(editProductDuplicateProductPage.IsDuplicateProductTitleVisible());
             }
             catch (Exception e)
             {

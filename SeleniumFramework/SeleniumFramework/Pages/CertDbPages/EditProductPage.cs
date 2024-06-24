@@ -701,11 +701,26 @@ namespace SeleniumFramework.Pages.CertDbPages
             return new ProductPage();
         }
 
-        public EditAddNewRecordFormPage NavigateToEditAddNewRecordFormPage()
+        public EditCertificationsAddNewRecordFormPage NavigateToEditAddNewRecordFormPage()
         {
             CertificationsAddNewProductButton.Click();
 
-            return new EditAddNewRecordFormPage();
+            return new EditCertificationsAddNewRecordFormPage();
+        }
+
+        public EditCrossReferencesAddNewRecordPage NavigateToEditCrossReferencesAddNewRecordPage()
+        {
+            CrossReferencesAddNewRecordButton.WaitForClickable();
+            CrossReferencesAddNewRecordButton.Click();
+
+            return new EditCrossReferencesAddNewRecordPage();
+        }
+
+        public EditProductDuplicateProductPage NavigateToDuplicateProductPage()
+        {
+            DuplicateProductButton.Click();
+
+            return new EditProductDuplicateProductPage();
         }
 
         public bool IsEditProductPageTitle()
