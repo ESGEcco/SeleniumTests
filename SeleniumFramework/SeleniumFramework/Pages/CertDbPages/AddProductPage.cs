@@ -957,7 +957,7 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         #endregion ControlInstantiations
 
-        public EditProductPage NavigateToEditProductPageAfterType()
+        public EditProductPage NavigateToEditProductPageAfterAlarmType()
         {
             SelectATypeButton.Click();
             AlarmTypeSelectionButton.Click();
@@ -965,7 +965,43 @@ namespace SeleniumFramework.Pages.CertDbPages
 
             return new EditProductPage();
         }
-        
+
+        public EditProductPage NavigateToEditProductPageAfterCameraType()
+        {
+            SelectATypeButton.Click();
+            CameraTypeSelectionButton.Click();
+            SubmitFormsOneButton.Click();
+
+            return new EditProductPage();
+        }
+
+        public EditProductPage NavigateToEditProductPageAfterLightType()
+        {
+            SelectATypeButton.Click();
+            LightTypeSelectionButton.Click();
+            SubmitFormsOneButton.Click();
+
+            return new EditProductPage();
+        }
+
+        public EditProductPage NavigateToEditProductPageAfterSirenSpeakerType()
+        {
+            SelectATypeButton.Click();
+            SirenSpeakerSelectionButton.Click();
+            SubmitFormsOneButton.Click();
+
+            return new EditProductPage();
+        }
+
+        public EditProductPage NavigateToEditProductPageAfterWorkLampType()
+        {
+            SelectATypeButton.Click();
+            WorkLampSelectionButton.Click();
+            SubmitFormsOneButton.Click();
+
+            return new EditProductPage();
+        }
+
         public bool IsAddProductPageLoaded()
         {
             if (AddProductLabel.Visible && CertificationsTab.Visible && PrimarySpecificationsTab.Visible && SecondarySpecificationsTab.Visible

@@ -7,6 +7,8 @@ namespace SeleniumFramework.Pages.CertDbPages
 {
     public class ProductPage
     {
+        #region ControlDefinitions
+
         WaitFor waitFor = new WaitFor();
         By titleLabel = By.Id("title");
         By addNewProductButton = By.Id("addProductButton");
@@ -23,7 +25,9 @@ namespace SeleniumFramework.Pages.CertDbPages
         By pageThreeLink = By.XPath("//button[contains(@title, 'Page 3')]");
         By privacyPolicyPageLink = By.XPath("//a[contains(text(), 'Privacy')]");
 
-        #region ControlDefinitions
+        #endregion ControlDefinitions
+
+        #region ControlInstantiations
 
         public LabelBase TitleLabel
         {
@@ -165,6 +169,8 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
+        #endregion ControlInstantiations
+
         public AddProductPage NavigateToAddProductPage()
         {
             AddNewProductButton.Click();
@@ -192,8 +198,6 @@ namespace SeleniumFramework.Pages.CertDbPages
 
             return new EditProductPage();
         }
-
-        #endregion ControlDefinitions
 
         public bool AreProductPageControlsVisible()
         {

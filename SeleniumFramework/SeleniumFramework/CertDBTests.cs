@@ -555,9 +555,53 @@ namespace SeleniumFramework
                 LoginPage loginPage = SF.OpenSites.OpenCertDB();
                 ProductPage productPage = loginPage.Login();
                 AddProductPage addProductPage = productPage.NavigateToAddProductPage();
-                EditProductPage editProductPage = addProductPage.NavigateToEditProductPageAfterType();
+                EditProductPage editProductPage = addProductPage.NavigateToEditProductPageAfterAlarmType();
 
                 Assert.IsTrue(editProductPage.IsEditProductPageTitle());
+            }
+            catch (Exception e)
+            {
+                CaptureScreenshot();
+
+                throw new Exception(e.Message);
+            }
+        }
+
+        [TestMethod]
+        public void VerifyNavigateToProductPageAfterCancelOne()
+        {
+            try
+            {
+                LoginPage loginPage = SF.OpenSites.OpenCertDB();
+                ProductPage productPage = loginPage.Login();
+                AddProductPage addProductPage = productPage.NavigateToAddProductPage();
+                EditProductPage editProductPage = addProductPage.NavigateToEditProductPageAfterAlarmType();
+
+                productPage = editProductPage.ClickCancelOneButton();
+
+                Assert.IsTrue(productPage.IsProductPageDisplayed());
+            }
+            catch (Exception e)
+            {
+                CaptureScreenshot();
+
+                throw new Exception(e.Message);
+            }
+        }
+
+        [TestMethod]
+        public void VerifyNavigateToProductPageAfterCancelTwo()
+        {
+            try
+            {
+                LoginPage loginPage = SF.OpenSites.OpenCertDB();
+                ProductPage productPage = loginPage.Login();
+                AddProductPage addProductPage = productPage.NavigateToAddProductPage();
+                EditProductPage editProductPage = addProductPage.NavigateToEditProductPageAfterAlarmType();
+
+                productPage = editProductPage.ClickCancelTwoButton();
+
+                Assert.IsTrue(productPage.IsProductPageDisplayed());
             }
             catch (Exception e)
             {

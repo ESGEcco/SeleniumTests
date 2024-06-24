@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
 using SeleniumFramework.SeleniumFramework.Controls;
 using SeleniumFramework.SeleniumFramework.Helpers;
-using System.Configuration;
 
 namespace SeleniumFramework.Pages.CertDbPages
 {
@@ -365,6 +364,36 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
+        public ButtonBase CrossReferencesAddNewRecordButton
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(crossReferencesAddNewRecordButton);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase SubmitFormsTwoButton
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(submitFormsTwoButton);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase CancelTwoButton
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(cancelTwoButton);
+
+                return new ButtonBase(element);
+            }
+        }
+
         public TextboxBase CameraMountingTextbox
         {
             get
@@ -656,6 +685,20 @@ namespace SeleniumFramework.Pages.CertDbPages
         }
 
         #endregion ControlInstantiations
+
+        public ProductPage ClickCancelOneButton()
+        {
+            CancelOneButton.Click();
+
+            return new ProductPage();
+        }
+
+        public ProductPage ClickCancelTwoButton()
+        {
+            CancelTwoButton.Click();
+
+            return new ProductPage();
+        }
 
         public bool IsEditProductPageTitle()
         {
