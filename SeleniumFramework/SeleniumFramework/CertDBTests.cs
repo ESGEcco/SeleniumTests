@@ -610,5 +610,26 @@ namespace SeleniumFramework
                 throw new Exception(e.Message);
             }
         }
+
+        [TestMethod]
+        public void VerifyEditProductAddNewProductFormIsDisplayed()
+        {
+            try
+            {
+                LoginPage loginPage = SF.OpenSites.OpenCertDB();
+                ProductPage productPage = loginPage.Login();
+                AddProductPage addProductPage = productPage.NavigateToAddProductPage();
+                EditProductPage editProductPage = addProductPage.NavigateToEditProductPageAfterAlarmType();
+                EditAddNewRecordFormPage editAddNewRecordFormPage = editProductPage.NavigateToEditAddNewRecordFormPage();
+                
+                Assert.IsTrue(editAddNewRecordFormPage.IsEditAddNewRecordFormDisplayed());
+            }
+            catch (Exception e)
+            {
+                CaptureScreenshot();
+
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

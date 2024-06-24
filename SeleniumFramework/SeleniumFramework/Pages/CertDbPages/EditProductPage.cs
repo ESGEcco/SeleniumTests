@@ -695,9 +695,17 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public ProductPage ClickCancelTwoButton()
         {
+            CancelTwoButton.WaitForClickable();
             CancelTwoButton.Click();
 
             return new ProductPage();
+        }
+
+        public EditAddNewRecordFormPage NavigateToEditAddNewRecordFormPage()
+        {
+            CertificationsAddNewProductButton.Click();
+
+            return new EditAddNewRecordFormPage();
         }
 
         public bool IsEditProductPageTitle()
