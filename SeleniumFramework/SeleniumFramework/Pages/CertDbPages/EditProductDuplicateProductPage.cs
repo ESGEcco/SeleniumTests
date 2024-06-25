@@ -9,7 +9,6 @@ namespace SeleniumFramework.Pages.CertDbPages
         #region ControlDefinitions
 
         WaitFor waitFor = new WaitFor();
-        By areYouSureLabel = By.XPath("//span[contains(text(), 'Are you sure?')]");
         By duplicateProductDialogueLabel = By.Id("duplicateProductDialog");
         By confirmButton = By.XPath("//button[contains(text(), 'Confirm')]");
         By cancelButton = By.XPath("//button[contains(text(), 'Cancel')]");
@@ -17,16 +16,6 @@ namespace SeleniumFramework.Pages.CertDbPages
         #endregion ControlDefinitions
 
         #region ControlInstantiations
-
-        public LabelBase AreYouSureLabel
-        {
-            get
-            {
-                IWebElement element = waitFor.Element(areYouSureLabel);
-
-                return new LabelBase(element);
-            }
-        }
 
         public LabelBase DuplicateProductDialogueLabel
         {
@@ -62,9 +51,7 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public bool IsDuplicateProductTitleVisible()
         {
-            AreYouSureLabel.WaitForVisible();
-            
-            return AreYouSureLabel.Visible;
+            return DuplicateProductDialogueLabel.Visible;
         }
     }
 }

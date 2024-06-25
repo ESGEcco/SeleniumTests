@@ -135,8 +135,8 @@ namespace SeleniumFramework.SeleniumFramework.Helpers
 
         public string GetAlertText()
         {
-            WaitForAlert();
-            return Driver.SwitchTo().Alert().Text;
+            //WaitForAlert();
+            return Driver.SwitchTo().ActiveElement().Text;
         }
 
         public void AcceptAlert()
