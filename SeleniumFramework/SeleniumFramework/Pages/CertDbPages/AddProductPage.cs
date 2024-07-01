@@ -1002,6 +1002,13 @@ namespace SeleniumFramework.Pages.CertDbPages
             return new EditProductPage();
         }
 
+        public EditProductPage ExpandCollapseAll()
+        {
+            ExpandCollapseAllButton.Click();
+
+            return new EditProductPage();
+        }
+
         public bool IsAddProductPageLoaded()
         {
             if (AddProductLabel.Visible && CertificationsTab.Visible && PrimarySpecificationsTab.Visible && SecondarySpecificationsTab.Visible

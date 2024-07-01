@@ -673,5 +673,27 @@ namespace SeleniumFramework
                 throw new Exception(e.Message);
             }
         }
+
+        [TestMethod]
+        public void VerifyEditProductPageCollapseAll()
+        {
+            try
+            {
+                LoginPage loginPage = SF.OpenSites.OpenCertDB();
+                ProductPage productPage = loginPage.Login();
+                AddProductPage addProductPage = productPage.NavigateToAddProductPage();
+                EditProductPage editProductPage = addProductPage.NavigateToEditProductPageAfterAlarmType();
+
+                editProductPage = editProductPage.ExpandCollapseAll();
+
+                Assert.IsTrue(editProductPage.IsFormCollapsed());
+            }
+            catch (Exception e)
+            {
+                CaptureScreenshot();
+
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

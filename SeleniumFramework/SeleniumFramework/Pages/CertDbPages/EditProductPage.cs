@@ -701,6 +701,13 @@ namespace SeleniumFramework.Pages.CertDbPages
             return new ProductPage();
         }
 
+        public EditProductPage ExpandCollapseAll()
+        {
+            ExpandCollapseAllButton.Click();
+
+            return new EditProductPage();
+        }
+
         public EditCertificationsAddNewRecordFormPage NavigateToEditAddNewRecordFormPage()
         {
             CertificationsAddNewProductButton.Click();
@@ -726,6 +733,30 @@ namespace SeleniumFramework.Pages.CertDbPages
         public bool IsEditProductPageTitle()
         {
             return TitleLabel.Visible;
+        }
+
+        public bool IsFormCollapsed()
+        {
+            if (!CertificationConnectorTextbox.Visible && !CurrentTextbox.Visible)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool IsFormExpanded()
+        {
+            if (CertificationConnectorTextbox.Visible && CurrentTextbox.Visible)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
