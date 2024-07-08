@@ -24,6 +24,8 @@ namespace SeleniumFramework.Pages.CertDbPages
         By pageTwoLink = By.XPath("//button[contains(@title, 'Page 2')]");
         By pageThreeLink = By.XPath("//button[contains(@title, 'Page 3')]");
         By privacyPolicyPageLink = By.XPath("//a[contains(text(), 'Privacy')]");
+        By accountButton = By.XPath("//a[contains(text(), 'Account')]");
+        By logoutButton = By.XPath("//a[contains(text(), 'Logout')]");
 
         #endregion ControlDefinitions
 
@@ -169,6 +171,26 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
+        public ButtonBase AccountButton
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(accountButton);
+
+                return new ButtonBase(element);
+            }
+        }
+
+        public ButtonBase LogoutButton
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(logoutButton);
+
+                return new ButtonBase(element);
+            }
+        }
+
         #endregion ControlInstantiations
 
         public AddProductPage NavigateToAddProductPage()
@@ -197,6 +219,14 @@ namespace SeleniumFramework.Pages.CertDbPages
             EditRecordButton.Click();
 
             return new EditProductPage();
+        }
+
+        public LogoutPage LogoutOfDB()
+        {
+            AccountButton.Click();
+            LogoutButton.Click();
+
+            return new LogoutPage();
         }
 
         public bool AreProductPageControlsVisible()

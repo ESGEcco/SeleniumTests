@@ -151,6 +151,7 @@
     <Compile Include="Pages\CertDbPages\EditProductPage.cs" />
     <Compile Include="Pages\CertDbPages\ForgotPasswordPage.cs" />
     <Compile Include="Pages\CertDbPages\LoginPage.cs" />
+    <Compile Include="Pages\CertDbPages\LogoutPage.cs" />
     <Compile Include="Pages\CertDbPages\PrivacyPage.cs" />
     <Compile Include="Pages\CertDbPages\ProductPage.cs" />
     <Compile Include="SeleniumFramework\Controls\BaseControl.cs" />

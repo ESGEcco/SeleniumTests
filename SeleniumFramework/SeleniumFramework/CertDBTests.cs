@@ -716,5 +716,24 @@ namespace SeleniumFramework
                 throw new Exception(e.Message);
             }
         }
+
+        [TestMethod]
+        public void LogoutOfCertDB()
+        {
+            try
+            {
+                LoginPage loginPage = SF.OpenSites.OpenCertDB();
+                ProductPage productPage = loginPage.Login();
+                LogoutPage logoutPage = productPage.LogoutOfDB();
+
+                Assert.IsTrue(logoutPage.IsLogoutLabelDisplayed());
+            }
+            catch (Exception e)
+            {
+                CaptureScreenshot();
+
+                throw new Exception(e.Message);
+            }
+        }
     }
 }
