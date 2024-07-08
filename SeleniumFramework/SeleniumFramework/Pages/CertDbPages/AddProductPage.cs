@@ -80,6 +80,7 @@ namespace SeleniumFramework.Pages.CertDbPages
         By workLampMountingTextbox = By.Id("Mounting");
         By workLampBaseMaterialTextbox = By.Id("BaseMaterial");
         By lensMaterialTextbox = By.Id("LensMaterial");
+        By errorDialogLabel = By.Id("errorDialog");
 
         #endregion ControlDefinitions
 
@@ -955,6 +956,16 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
+        public LabelBase ErrorDialogLabel
+        {
+            get
+            {
+                IWebElement element = waitFor.Element(errorDialogLabel);
+
+                return new LabelBase(element);
+            }
+        }
+
         #endregion ControlInstantiations
 
         public EditProductPage NavigateToEditProductPageAfterAlarmType()
@@ -1009,6 +1020,136 @@ namespace SeleniumFramework.Pages.CertDbPages
             return new EditProductPage();
         }
 
+        public ProductPage CancelButtonReturnsToProductPage()
+        {
+            CancelProductOneButton.Click();
+
+            return new ProductPage();
+        }
+
+        public AddProductPage SelectAlarmType()
+        {
+            SelectATypeButton.Click();
+            AlarmTypeSelectionButton.Click();
+
+            return new AddProductPage();
+        }
+
+        public bool AreAlarmControlsVisible()
+        {
+            if (Spl1Textbox.Visible && Spl2Textbox.Visible && Spl3Textbox.Visible && FrequencyTextbox.Visible &&
+                ToleranceTextbox.Visible && MountingTextbox.Visible && HousingMaterialTextbox.Visible)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public AddProductPage SelectCameraType()
+        {
+            SelectATypeButton.Click();
+            CameraTypeSelectionButton.WaitForClickable();
+            CameraTypeSelectionButton.Click();
+
+            return new AddProductPage();
+        }
+
+        public bool AreCameraControlsVisible()
+        {
+            if (CameraMountingTextbox.Visible && MonitorMountingTextbox.Visible && ColorSystemTextbox.Visible &&
+                ScreenSizeTextbox.Visible && ScreenRatioTextbox.Visible && ResolutionTextbox.Visible &&
+                LensAngleTextbox.Visible && InfraRedLedTextbox.Visible && WirelessSlider.Visible && AudioInputSlider.Visible &&
+                DayNightSensorSlider.Visible && MirrorNormalImageSlider.Visible)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public AddProductPage SelectLightType()
+        {
+            SelectATypeButton.Click();
+            LightTypeSelectionButton.WaitForClickable();
+            LightTypeSelectionButton.Click();
+
+            return new AddProductPage();
+        }
+
+        public AddProductPage ClickSubmitFormsNoType()
+        {
+            SubmitFormsOneButton.Click();
+
+            return new AddProductPage();
+        }
+
+        public AddProductPage SelectSirenSpeakerType()
+        {
+            SelectATypeButton.Click();
+            SirenSpeakerSelectionButton.WaitForClickable();
+            SirenSpeakerSelectionButton.Click();
+
+            return new AddProductPage();
+        }
+
+        public bool IsErrorDialogueDisplayed()
+        {
+            return ErrorDialogLabel.Visible;
+        }
+        
+        public bool AreSirenSpeakerControlsVisible()
+        {
+            if (StandbyCurrentTextbox.Visible && RatedPowerMaximumTextbox.Visible &&
+                SirenSpeakerMountingTextbox.Visible && SirenSpeakerHousingMaterialTextbox.Visible)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public AddProductPage SelectWorkLampType()
+        {
+            SelectATypeButton.Click();
+            WorkLampSelectionButton.WaitForClickable();
+            WorkLampSelectionButton.Click();
+
+            return new AddProductPage();
+        }
+
+        public bool AreWorkLampControlsVisible()
+        {
+            if (CalculatedLumensTextbox.Visible && RawLumensTextbox.Visible && EffectiveLumensTextbox.Visible &&
+                IlluminanceTextbox.Visible && IntensityTextbox.Visible && CctTextbox.Visible && WorkLampMountingTextbox.Visible &&
+                BaseMaterialTextbox.Visible && LensMaterialTextbox.Visible)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool AreLightControlsVisible()
+        {
+            if (LumensTextbox.Visible && ColorTextbox.Visible && LightMountingTextbox.Visible && BaseMaterialTextbox.Visible)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool IsAddProductPageLoaded()
         {
             if (AddProductLabel.Visible && CertificationsTab.Visible && PrimarySpecificationsTab.Visible && SecondarySpecificationsTab.Visible
@@ -1027,7 +1168,7 @@ namespace SeleniumFramework.Pages.CertDbPages
             ExpandCollapseAllButton.Click();
             CertificationsTabSection.WaitForNotVisible();
 
-            if (!CertificationsTabSection.Visible && !PrimarySpecificationsTabSection.Visible && 
+            if (!CertificationsTabSection.Visible && !PrimarySpecificationsTabSection.Visible &&
                 !SecondarySpecificationsTabSection.Visible && !CrossReferencesTabSection.Visible)
             {
                 return true;
@@ -1098,122 +1239,5 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
-        public ProductPage CancelButtonReturnsToProductPage()
-        {
-            CancelProductOneButton.Click();
-
-            return new ProductPage();
-        }
-
-        public AddProductPage SelectAlarmType()
-        {
-            SelectATypeButton.Click();
-            AlarmTypeSelectionButton.Click();
-
-            return new AddProductPage();
-        }
-
-        public bool AreAlarmControlsVisible()
-        {
-            if (Spl1Textbox.Visible && Spl2Textbox.Visible && Spl3Textbox.Visible && FrequencyTextbox.Visible &&
-                ToleranceTextbox.Visible && MountingTextbox.Visible && HousingMaterialTextbox.Visible)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public AddProductPage SelectCameraType()
-        {
-            SelectATypeButton.Click();
-            CameraTypeSelectionButton.WaitForClickable();
-            CameraTypeSelectionButton.Click();
-
-            return new AddProductPage();
-        }
-
-        public bool AreCameraControlsVisible()
-        {
-            if (CameraMountingTextbox.Visible && MonitorMountingTextbox.Visible && ColorSystemTextbox.Visible &&
-                ScreenSizeTextbox.Visible && ScreenRatioTextbox.Visible && ResolutionTextbox.Visible &&
-                LensAngleTextbox.Visible && InfraRedLedTextbox.Visible && WirelessSlider.Visible && AudioInputSlider.Visible &&
-                DayNightSensorSlider.Visible && MirrorNormalImageSlider.Visible)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public AddProductPage SelectLightType()
-        {
-            SelectATypeButton.Click();
-            LightTypeSelectionButton.WaitForClickable();
-            LightTypeSelectionButton.Click();
-
-            return new AddProductPage();
-        }
-
-        public bool AreLightControlsVisible()
-        {
-            if (LumensTextbox.Visible && ColorTextbox.Visible && LightMountingTextbox.Visible && BaseMaterialTextbox.Visible)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public AddProductPage SelectSirenSpeakerType()
-        {
-            SelectATypeButton.Click();
-            SirenSpeakerSelectionButton.WaitForClickable();
-            SirenSpeakerSelectionButton.Click();
-
-            return new AddProductPage();
-        }
-
-        public bool AreSirenSpeakerControlsVisible()
-        {
-            if (StandbyCurrentTextbox.Visible && RatedPowerMaximumTextbox.Visible &&
-                SirenSpeakerMountingTextbox.Visible && SirenSpeakerHousingMaterialTextbox.Visible)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public AddProductPage SelectWorkLampType()
-        {
-            SelectATypeButton.Click();
-            WorkLampSelectionButton.WaitForClickable();
-            WorkLampSelectionButton.Click();
-
-            return new AddProductPage();
-        }
-
-        public bool AreWorkLampControlsVisible()
-        {
-            if (CalculatedLumensTextbox.Visible && RawLumensTextbox.Visible && EffectiveLumensTextbox.Visible &&
-                IlluminanceTextbox.Visible && IntensityTextbox.Visible && CctTextbox.Visible && WorkLampMountingTextbox.Visible &&
-                BaseMaterialTextbox.Visible && LensMaterialTextbox.Visible)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
     }
 }
