@@ -1,21 +1,22 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿//using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using SeleniumFramework.Pages.CertDbPages;
 using SeleniumFramework.SeleniumFramework.Helpers;
 using System;
 
 namespace SeleniumFramework
 {
-    [TestClass]
+    [TestFixture]
     public class CertDBTests : TestBase
     {
-        [TestMethod]
+        [Test(Description ="Verifies the controls on the Login page")]
         public void LoginPageControlsVisible()
         {
             try
             {
                 LoginPage loginPage = SF.OpenSites.OpenCertDB();
                 
-                Assert.IsTrue(loginPage.AreLoginPageControlsDisplayed());
+                Assert.Equals(true, loginPage.AreLoginPageControlsDisplayed());
             }
             catch (Exception e)
             {
@@ -25,7 +26,7 @@ namespace SeleniumFramework
             }
         }
         
-        [TestMethod]
+        [Test(Description ="Verifies the ability to login to the CertDB")]
         public void CertDBLogin()
         {
             try
@@ -33,7 +34,7 @@ namespace SeleniumFramework
                 LoginPage loginPage = SF.OpenSites.OpenCertDB();
                 ProductPage productPage = loginPage.Login();
 
-                Assert.IsTrue(productPage.IsProductPageDisplayed());
+                Assert.Equals(true, productPage.IsProductPageDisplayed());
             }
             catch(Exception e)
             {
@@ -43,7 +44,7 @@ namespace SeleniumFramework
             }            
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the appropriate message is displayed for a missing UserName")]
         public void UsernameMissing()
         {
             try
@@ -52,7 +53,7 @@ namespace SeleniumFramework
 
                 loginPage = loginPage.MissingUsername();
 
-                Assert.IsTrue(loginPage.IsUsernameErrorLabelVisible());
+                Assert.Equals(true, loginPage.IsUsernameErrorLabelVisible());
 
             }
             catch (Exception e)
@@ -63,7 +64,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the appropriate message is displayed for a missing Password")]
         public void PasswordMissing()
         {
             try
@@ -72,7 +73,7 @@ namespace SeleniumFramework
 
                 loginPage = loginPage.MissingPassword();
 
-                Assert.IsTrue(loginPage.IsPasswordErrorLabelVisible());
+                Assert.Equals(true, loginPage.IsPasswordErrorLabelVisible());
 
             }
             catch (Exception e)
@@ -83,7 +84,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the appropriate message is displayed if both credentials are missing")]
         public void UsernameAndPasswordMissing()
         {
             try
@@ -92,8 +93,8 @@ namespace SeleniumFramework
 
                 loginPage = loginPage.MissingUsernameAndPassword();
 
-                Assert.IsTrue(loginPage.IsPasswordErrorLabelVisible());
-                Assert.IsTrue(loginPage.IsUsernameErrorLabelVisible());
+                Assert.Equals(true, loginPage.IsPasswordErrorLabelVisible());
+                Assert.Equals(true, loginPage.IsUsernameErrorLabelVisible());
             }
             catch (Exception e)
             {
@@ -103,7 +104,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the appropriate message is displayed for having wrong credentials")]
         public void InvalidUsernameAndPassword()
         {
             try
@@ -112,7 +113,7 @@ namespace SeleniumFramework
 
                 loginPage = loginPage.InvalidUsernameAndPassword();
 
-                Assert.IsTrue(loginPage.IsInvalidUsernameAndPasswordLabelVisible());
+                Assert.Equals(true, loginPage.IsInvalidUsernameAndPasswordLabelVisible());
             }
             catch (Exception e)
             {
@@ -122,7 +123,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies navigation to the appropriate page if canceling loggin in to CertDB")]
         public void CancelLogin()
         {
             try
@@ -131,7 +132,7 @@ namespace SeleniumFramework
 
                 loginPage = loginPage.ClickCancelButton();
 
-                Assert.IsTrue(loginPage.LoginPageLoaded());
+                Assert.Equals(true, loginPage.LoginPageLoaded());
             }
             catch (Exception e)
             {
@@ -141,7 +142,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies navigation to the correct page when the Forgot Password link is clicked")]
         public void NavigateToForgotPasswordPage()
         {
             try
@@ -149,7 +150,7 @@ namespace SeleniumFramework
                 LoginPage loginPage = SF.OpenSites.OpenCertDB();
                 ForgotPasswordPage forgotPasswordPage = loginPage.NavigateToForgotPasswordPage();
 
-                //Assert.IsTrue(*****CREATE VERIFY METHOD ONCE PAGE IS CREATED*****);
+                //Assert.Equals(*****CREATE VERIFY METHOD ONCE PAGE IS CREATED*****);
             }
             catch (Exception e)
             {
@@ -159,7 +160,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies that the login page is by passed if authorized credentials have been previously entered")]
         public void NavigateDirectlyToCertDBProductPage()
         {
             //This should only pass if the CertDB does not require credentials (Ex: previously logged in)
@@ -167,7 +168,7 @@ namespace SeleniumFramework
             {
                 ProductPage productPage = SF.OpenSites.OpenCertDBToProductPage();
 
-                Assert.IsTrue(productPage.IsProductPageDisplayed());
+                Assert.Equals(true, productPage.IsProductPageDisplayed());
             }
             catch (Exception e)
             {
@@ -177,7 +178,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies navigation to the Add Product page")]
         public void NavigateToAddProductPage()
         {
             try
@@ -186,7 +187,7 @@ namespace SeleniumFramework
                 ProductPage productPage = loginPage.Login();
                 AddProductPage addProductPage = productPage.NavigateToAddProductPage();
 
-                Assert.IsTrue(addProductPage.IsAddProductPageLoaded());
+                Assert.Equals(true, addProductPage.IsAddProductPageLoaded());
             }
             catch (Exception e)
             {
@@ -196,7 +197,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies Options section can successfully expand")]
         public void ExpandOptionsSection()
         {
             try
@@ -206,7 +207,7 @@ namespace SeleniumFramework
 
                 productPage = productPage.ExpandOptionsSection();
 
-                Assert.IsTrue(productPage.IsGroupOptionLabelVisible());
+                Assert.Equals(true, productPage.IsGroupOptionLabelVisible());
             }
             catch (Exception e)
             {
@@ -216,7 +217,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies successful navigation to the Privacy page")]
         public void NavigateToPrivacyPage()
         {
             try
@@ -225,7 +226,7 @@ namespace SeleniumFramework
                 ProductPage productPage = loginPage.Login();
                 PrivacyPage privacyPage = productPage.NavigateToPrivacyPage();
 
-                Assert.IsTrue(privacyPage.IsPrivacyPolicyPageLoaded());
+                Assert.Equals(true, privacyPage.IsPrivacyPolicyPageLoaded());
             }
             catch (Exception e)
             {
@@ -235,7 +236,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies ability to navigate to the Edit Product page")]
         public void NavigateToEditProductPage()
         {
             try
@@ -244,7 +245,7 @@ namespace SeleniumFramework
                 ProductPage productPage = loginPage.Login();
                 EditProductPage editProductPage = productPage.NavigateToEditProductPage();
 
-                Assert.IsTrue(editProductPage.IsEditProductPageTitle());
+                Assert.Equals(true, editProductPage.IsEditProductPageTitle());
             }
             catch (Exception e)
             {
@@ -254,7 +255,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the controls on the Product page")]
         public void VerifyProductPageControls()
         {
             try
@@ -262,7 +263,7 @@ namespace SeleniumFramework
                 LoginPage loginPage = SF.OpenSites.OpenCertDB();
                 ProductPage productPage = loginPage.Login();
 
-                Assert.IsTrue(productPage.AreProductPageControlsVisible());
+                Assert.Equals(true, productPage.AreProductPageControlsVisible());
             }
             catch (Exception e)
             {
@@ -272,7 +273,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the Search by Part Id tooltip")]
         public void VerifySearchByPartIdToolTip()
         {
             try
@@ -280,7 +281,7 @@ namespace SeleniumFramework
                 LoginPage loginPage = SF.OpenSites.OpenCertDB();
                 ProductPage productPage = loginPage.Login();
 
-                Assert.IsTrue(productPage.VerifySearchByPartIdTooltip());
+                Assert.Equals(true, productPage.VerifySearchByPartIdTooltip());
             }
             catch (Exception e)
             {
@@ -290,7 +291,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the Region Filter tooltip")]
         public void VerifyRegionFilterToolTip()
         {
             try
@@ -298,7 +299,7 @@ namespace SeleniumFramework
                 LoginPage loginPage = SF.OpenSites.OpenCertDB();
                 ProductPage productPage = loginPage.Login();
 
-                Assert.IsTrue(productPage.VerifyRegionFilterTooltip());
+                Assert.Equals(true, productPage.VerifyRegionFilterTooltip());
             }
             catch (Exception e)
             {
@@ -308,7 +309,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the Product Filter tooltip")]
         public void VerifyProductFilterToolTip()
         {
             try
@@ -316,7 +317,7 @@ namespace SeleniumFramework
                 LoginPage loginPage = SF.OpenSites.OpenCertDB();
                 ProductPage productPage = loginPage.Login();
 
-                Assert.IsTrue(productPage.VerifyProdctFilterTooltip());
+                Assert.Equals(true, productPage.VerifyProdctFilterTooltip());
             }
             catch (Exception e)
             {
