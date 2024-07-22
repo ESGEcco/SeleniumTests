@@ -1,7 +1,5 @@
-﻿//using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using SeleniumFramework.Pages.CertDbPages;
-using SeleniumFramework.SeleniumFramework.Helpers;
 using System;
 
 namespace SeleniumFramework
@@ -327,7 +325,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the Add Product tabs collapse correctly")]
         public void VerifyAddProductTabsCollapse()
         {
             try
@@ -336,7 +334,7 @@ namespace SeleniumFramework
                 ProductPage productPage = loginPage.Login();
                 AddProductPage addProductPage = productPage.NavigateToAddProductPage();
 
-                Assert.IsTrue(addProductPage.VerifyCollapseAll());
+                Assert.Equals(true, addProductPage.VerifyCollapseAll());
             }
             catch (Exception e)
             {
@@ -346,7 +344,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the Add Product Certifications tab collapses correctly")]
         public void VerifyAddProductCertificationsTabCollapse()
         {
             try
@@ -355,7 +353,7 @@ namespace SeleniumFramework
                 ProductPage productPage = loginPage.Login();
                 AddProductPage addProductPage = productPage.NavigateToAddProductPage();
 
-                Assert.IsTrue(addProductPage.VerifyCertificationsTabSectionCollapse());
+                Assert.Equals(true, addProductPage.VerifyCertificationsTabSectionCollapse());
             }
             catch (Exception e)
             {
@@ -365,7 +363,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the Add Products Primary Specifications tab collapses correctly")]
         public void VerifyAddProductsPrimarySpecificationsCollapse()
         {
             try
@@ -374,7 +372,8 @@ namespace SeleniumFramework
                 ProductPage productPage = loginPage.Login();
                 AddProductPage addProductPage = productPage.NavigateToAddProductPage();
 
-                Assert.IsTrue(addProductPage.VerifyPrimarySpecificationsTabSectionCollapse());
+                Assert.Equals(true, addProductPage.VerifyPrimarySpecificationsTabSectionCollapse());
+                
             }
             catch (Exception e)
             {
@@ -384,7 +383,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the Add Products Secondary Specifications tab collapses correctly")]
         public void VerifyAddProductsSecondarySpecificationsCollapse()
         {
             try
@@ -393,7 +392,7 @@ namespace SeleniumFramework
                 ProductPage productPage = loginPage.Login();
                 AddProductPage addProductPage = productPage.NavigateToAddProductPage();
 
-                Assert.IsTrue(addProductPage.VerifySecondarySpecificationsTabSectionCollapse());
+                Assert.Equals(true, addProductPage.VerifySecondarySpecificationsTabSectionCollapse());
             }
             catch (Exception e)
             {
@@ -403,7 +402,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the Add Product Cross References tab collapses correctly")]
         public void VerifyAddProductsCrossReferencesCollapse()
         {
             try
@@ -412,7 +411,7 @@ namespace SeleniumFramework
                 ProductPage productPage = loginPage.Login();
                 AddProductPage addProductPage = productPage.NavigateToAddProductPage();
 
-                Assert.IsTrue(addProductPage.VerifyCrossReferencesTabSectionCollapse());
+                Assert.Equals(true, addProductPage.VerifyCrossReferencesTabSectionCollapse());
             }
             catch (Exception e)
             {
@@ -422,7 +421,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies clicking the Cancel button returns to the Product page")]
         public void VerifyCancelButtonReturnsToProductPage()
         {
             try
@@ -433,7 +432,7 @@ namespace SeleniumFramework
 
                 productPage = addProductPage.CancelButtonReturnsToProductPage();
 
-                Assert.IsTrue(productPage.IsProductPageDisplayed());
+                Assert.Equals(true, productPage.IsProductPageDisplayed());
             }
             catch (Exception e)
             {
@@ -443,7 +442,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the controls displayed after selecting the Alarm type")]
         public void VerifyAlarmTypeControls()
         {
             try
@@ -454,7 +453,7 @@ namespace SeleniumFramework
 
                 addProductPage = addProductPage.SelectAlarmType();
 
-                Assert.IsTrue(addProductPage.AreAlarmControlsVisible());
+                Assert.Equals(true, addProductPage.AreAlarmControlsVisible());
             }
             catch (Exception e)
             {
@@ -464,7 +463,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the proper controls are displayed when selecting the Camera type")]
         public void VerifyCameraTypeControls()
         {
             try
@@ -475,7 +474,7 @@ namespace SeleniumFramework
 
                 addProductPage = addProductPage.SelectCameraType();
 
-                Assert.IsTrue(addProductPage.AreCameraControlsVisible());
+                Assert.Equals(true, addProductPage.AreCameraControlsVisible());
             }
             catch (Exception e)
             {
@@ -485,7 +484,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the proper controls are displayed after selecting the Light type")]
         public void VerifyLightTypeControls()
         {
             try
@@ -496,7 +495,7 @@ namespace SeleniumFramework
 
                 addProductPage = addProductPage.SelectLightType();
 
-                Assert.IsTrue(addProductPage.AreLightControlsVisible());
+                Assert.Equals(true, addProductPage.AreLightControlsVisible());
             }
             catch (Exception e)
             {
@@ -506,7 +505,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the proper controls are displayed after selecting the Siren Speaker type")]
         public void VerifySirenSpeakerTypeControls()
         {
             try
@@ -517,7 +516,7 @@ namespace SeleniumFramework
 
                 addProductPage = addProductPage.SelectSirenSpeakerType();
 
-                Assert.IsTrue(addProductPage.AreSirenSpeakerControlsVisible());
+                Assert.Equals(true, addProductPage.AreSirenSpeakerControlsVisible());
             }
             catch (Exception e)
             {
@@ -527,7 +526,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the proper controls are displayed after selecting the Work Lamp type")]
         public void VerifyWorkLampTypeControls()
         {
             try
@@ -538,7 +537,7 @@ namespace SeleniumFramework
 
                 addProductPage = addProductPage.SelectWorkLampType();
 
-                Assert.IsTrue(addProductPage.AreWorkLampControlsVisible());
+                Assert.Equals(true, addProductPage.AreWorkLampControlsVisible());
             }
             catch (Exception e)
             {
@@ -548,7 +547,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies navigation to the Edit Product page after selecting a type")]
         public void VerifyNavigateToEditProductPageAfterType()
         {
             try
@@ -558,7 +557,7 @@ namespace SeleniumFramework
                 AddProductPage addProductPage = productPage.NavigateToAddProductPage();
                 EditProductPage editProductPage = addProductPage.NavigateToEditProductPageAfterAlarmType();
 
-                Assert.IsTrue(editProductPage.IsEditProductPageTitle());
+                Assert.Equals(true, editProductPage.IsEditProductPageTitle());
             }
             catch (Exception e)
             {
@@ -568,7 +567,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies navigation back to the Product page after clicking the top Cancel button")]
         public void VerifyNavigateToProductPageAfterCancelOne()
         {
             try
@@ -580,7 +579,7 @@ namespace SeleniumFramework
 
                 productPage = editProductPage.ClickCancelOneButton();
 
-                Assert.IsTrue(productPage.IsProductPageDisplayed());
+                Assert.Equals(true, productPage.IsProductPageDisplayed());
             }
             catch (Exception e)
             {
@@ -590,7 +589,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies navigation to the Product page after clicking the bottom Cancel button")]
         public void VerifyNavigateToProductPageAfterCancelTwo()
         {
             try
@@ -602,7 +601,7 @@ namespace SeleniumFramework
 
                 productPage = editProductPage.ClickCancelTwoButton();
 
-                Assert.IsTrue(productPage.IsProductPageDisplayed());
+                Assert.Equals(true, productPage.IsProductPageDisplayed());
             }
             catch (Exception e)
             {
@@ -612,7 +611,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the Edit Product Add New Product form is displayed")]
         public void VerifyEditProductAddNewProductFormIsDisplayed()
         {
             try
@@ -623,7 +622,7 @@ namespace SeleniumFramework
                 EditProductPage editProductPage = addProductPage.NavigateToEditProductPageAfterAlarmType();
                 EditCertificationsAddNewRecordFormPage editAddNewRecordFormPage = editProductPage.NavigateToEditAddNewRecordFormPage();
                 
-                Assert.IsTrue(editAddNewRecordFormPage.IsEditAddNewRecordFormDisplayed());
+                Assert.Equals(true, editAddNewRecordFormPage.IsEditAddNewRecordFormDisplayed());
             }
             catch (Exception e)
             {
@@ -633,7 +632,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the Cross Reference Add New Product form is displayed")]
         public void VerifyEditProductCrossReferencesAddNewProductFormIsDisplayed()
         {
             try
@@ -644,7 +643,7 @@ namespace SeleniumFramework
                 EditProductPage editProductPage = addProductPage.NavigateToEditProductPageAfterAlarmType();
                 EditCrossReferencesAddNewRecordPage editCrossReferencesAddNewRecordPage = editProductPage.NavigateToEditCrossReferencesAddNewRecordPage();
 
-                Assert.IsTrue(editCrossReferencesAddNewRecordPage.IsEditAddNewRecordFormDisplayed());
+                Assert.Equals(true, editCrossReferencesAddNewRecordPage.IsEditAddNewRecordFormDisplayed());
             }
             catch (Exception e)
             {
@@ -654,7 +653,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the Duplicate Product form is displayed")]
         public void VerifyEditProductDuplicateProductFormIsDisplayed()
         {
             try
@@ -665,7 +664,7 @@ namespace SeleniumFramework
                 EditProductPage editProductPage = addProductPage.NavigateToEditProductPageAfterAlarmType();
                 EditProductDuplicateProductPage editProductDuplicateProductPage = editProductPage.NavigateToDuplicateProductPage();
 
-                Assert.IsTrue(editProductDuplicateProductPage.IsDuplicateProductTitleVisible());
+                Assert.Equals(true, editProductDuplicateProductPage.IsDuplicateProductTitleVisible());
             }
             catch (Exception e)
             {
@@ -675,7 +674,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the Edit Product page collapses every tab")]
         public void VerifyEditProductPageCollapseAll()
         {
             try
@@ -687,7 +686,7 @@ namespace SeleniumFramework
 
                 editProductPage = editProductPage.ExpandCollapseAll();
 
-                Assert.IsTrue(editProductPage.IsFormCollapsed());
+                Assert.Equals(true, editProductPage.IsFormCollapsed());
             }
             catch (Exception e)
             {
@@ -697,7 +696,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies the Type error dialogue is displayed properly")]
         public void VerifySelectTypeErrorDialogueDisplayed()
         {
             try
@@ -708,7 +707,7 @@ namespace SeleniumFramework
 
                 addProductPage = addProductPage.ClickSubmitFormsNoType();
 
-                Assert.IsTrue(addProductPage.IsErrorDialogueDisplayed());
+                Assert.Equals(true, addProductPage.IsErrorDialogueDisplayed());
             }
             catch (Exception e)
             {
@@ -718,7 +717,7 @@ namespace SeleniumFramework
             }
         }
 
-        [TestMethod]
+        [Test(Description ="Verifies successful logout of the CertDB")]
         public void LogoutOfCertDB()
         {
             try
@@ -727,7 +726,7 @@ namespace SeleniumFramework
                 ProductPage productPage = loginPage.Login();
                 LogoutPage logoutPage = productPage.LogoutOfDB();
 
-                Assert.IsTrue(logoutPage.IsLogoutLabelDisplayed());
+                Assert.Equals(true, logoutPage.IsLogoutLabelDisplayed());
             }
             catch (Exception e)
             {
