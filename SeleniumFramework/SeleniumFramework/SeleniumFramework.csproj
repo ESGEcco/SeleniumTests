@@ -183,6 +183,7 @@
     <Compile Include="SeleniumFramework\Enums\Browsers.cs" />
     <Compile Include="SeleniumFramework\Helpers\CaptureScreenshots.cs" />
     <Compile Include="SeleniumFramework\Helpers\DecryptHelper.cs" />
+    <Compile Include="SeleniumFramework\Helpers\DragAndDropHelper.cs" />
     <Compile Include="SeleniumFramework\Helpers\HelpersBase.cs" />
     <Compile Include="SeleniumFramework\Helpers\JavascriptHelpers.cs" />
     <Compile Include="SeleniumFramework\Helpers\ScreenShotRemoteWebDriver.cs" />
