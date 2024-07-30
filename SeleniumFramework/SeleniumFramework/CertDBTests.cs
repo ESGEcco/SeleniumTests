@@ -14,7 +14,7 @@ namespace SeleniumFramework
             {
                 LoginPage loginPage = SF.OpenSites.OpenCertDB();
                 
-                Assert.Equals(true, loginPage.AreLoginPageControlsDisplayed());
+                Assert.That(loginPage.AreLoginPageControlsDisplayed());
             }
             catch (Exception e)
             {
@@ -32,7 +32,7 @@ namespace SeleniumFramework
                 LoginPage loginPage = SF.OpenSites.OpenCertDB();
                 ProductPage productPage = loginPage.Login();
 
-                Assert.Equals(true, productPage.IsProductPageDisplayed());
+                Assert.That(productPage.IsProductPageDisplayed());
             }
             catch(Exception e)
             {
@@ -51,7 +51,7 @@ namespace SeleniumFramework
 
                 loginPage = loginPage.MissingUsername();
 
-                Assert.Equals(true, loginPage.IsUsernameErrorLabelVisible());
+                Assert.That(loginPage.IsUsernameErrorLabelVisible());
 
             }
             catch (Exception e)
@@ -71,7 +71,7 @@ namespace SeleniumFramework
 
                 loginPage = loginPage.MissingPassword();
 
-                Assert.Equals(true, loginPage.IsPasswordErrorLabelVisible());
+                Assert.That(loginPage.IsPasswordErrorLabelVisible());
 
             }
             catch (Exception e)
@@ -91,8 +91,8 @@ namespace SeleniumFramework
 
                 loginPage = loginPage.MissingUsernameAndPassword();
 
-                Assert.Equals(true, loginPage.IsPasswordErrorLabelVisible());
-                Assert.Equals(true, loginPage.IsUsernameErrorLabelVisible());
+                Assert.That(loginPage.IsPasswordErrorLabelVisible());
+                Assert.That(loginPage.IsUsernameErrorLabelVisible());
             }
             catch (Exception e)
             {
@@ -111,7 +111,7 @@ namespace SeleniumFramework
 
                 loginPage = loginPage.InvalidUsernameAndPassword();
 
-                Assert.Equals(true, loginPage.IsInvalidUsernameAndPasswordLabelVisible());
+                Assert.That(loginPage.IsInvalidUsernameAndPasswordLabelVisible());
             }
             catch (Exception e)
             {
@@ -130,7 +130,7 @@ namespace SeleniumFramework
 
                 loginPage = loginPage.ClickCancelButton();
 
-                Assert.Equals(true, loginPage.LoginPageLoaded());
+                Assert.That(loginPage.LoginPageLoaded());
             }
             catch (Exception e)
             {
@@ -148,7 +148,7 @@ namespace SeleniumFramework
                 LoginPage loginPage = SF.OpenSites.OpenCertDB();
                 ForgotPasswordPage forgotPasswordPage = loginPage.NavigateToForgotPasswordPage();
 
-                //Assert.Equals(*****CREATE VERIFY METHOD ONCE PAGE IS CREATED*****);
+                //Assert.That(*****CREATE VERIFY METHOD ONCE PAGE IS CREATED*****);
             }
             catch (Exception e)
             {
@@ -166,7 +166,7 @@ namespace SeleniumFramework
             {
                 ProductPage productPage = SF.OpenSites.OpenCertDBToProductPage();
 
-                Assert.Equals(true, productPage.IsProductPageDisplayed());
+                Assert.That(productPage.IsProductPageDisplayed());
             }
             catch (Exception e)
             {
@@ -185,7 +185,7 @@ namespace SeleniumFramework
                 ProductPage productPage = loginPage.Login();
                 AddProductPage addProductPage = productPage.NavigateToAddProductPage();
 
-                Assert.Equals(true, addProductPage.IsAddProductPageLoaded());
+                Assert.That(addProductPage.IsAddProductPageLoaded());
             }
             catch (Exception e)
             {
@@ -205,7 +205,7 @@ namespace SeleniumFramework
 
                 productPage = productPage.ExpandOptionsSection();
 
-                Assert.Equals(true, productPage.IsGroupOptionLabelVisible());
+                Assert.That(productPage.IsGroupOptionLabelVisible());
             }
             catch (Exception e)
             {
@@ -224,7 +224,7 @@ namespace SeleniumFramework
                 ProductPage productPage = loginPage.Login();
                 PrivacyPage privacyPage = productPage.NavigateToPrivacyPage();
 
-                Assert.Equals(true, privacyPage.IsPrivacyPolicyPageLoaded());
+                Assert.That(privacyPage.IsPrivacyPolicyPageLoaded());
             }
             catch (Exception e)
             {
@@ -243,7 +243,7 @@ namespace SeleniumFramework
                 ProductPage productPage = loginPage.Login();
                 EditProductPage editProductPage = productPage.NavigateToEditProductPage();
 
-                Assert.Equals(true, editProductPage.IsEditProductPageTitle());
+                Assert.That(editProductPage.IsEditProductPageTitle());
             }
             catch (Exception e)
             {
@@ -261,7 +261,7 @@ namespace SeleniumFramework
                 LoginPage loginPage = SF.OpenSites.OpenCertDB();
                 ProductPage productPage = loginPage.Login();
 
-                Assert.Equals(true, productPage.AreProductPageControlsVisible());
+                Assert.That(productPage.AreProductPageControlsVisible());
             }
             catch (Exception e)
             {
@@ -279,7 +279,7 @@ namespace SeleniumFramework
                 LoginPage loginPage = SF.OpenSites.OpenCertDB();
                 ProductPage productPage = loginPage.Login();
 
-                Assert.Equals(true, productPage.VerifySearchByPartIdTooltip());
+                Assert.That(productPage.VerifySearchByPartIdTooltip());
             }
             catch (Exception e)
             {
@@ -297,7 +297,7 @@ namespace SeleniumFramework
                 LoginPage loginPage = SF.OpenSites.OpenCertDB();
                 ProductPage productPage = loginPage.Login();
 
-                Assert.Equals(true, productPage.VerifyRegionFilterTooltip());
+                Assert.That(productPage.VerifyRegionFilterTooltip());
             }
             catch (Exception e)
             {
@@ -315,7 +315,7 @@ namespace SeleniumFramework
                 LoginPage loginPage = SF.OpenSites.OpenCertDB();
                 ProductPage productPage = loginPage.Login();
 
-                Assert.Equals(true, productPage.VerifyProdctFilterTooltip());
+                Assert.That(productPage.VerifyProdctFilterTooltip());
             }
             catch (Exception e)
             {
@@ -334,7 +334,7 @@ namespace SeleniumFramework
                 ProductPage productPage = loginPage.Login();
                 AddProductPage addProductPage = productPage.NavigateToAddProductPage();
 
-                Assert.Equals(true, addProductPage.VerifyCollapseAll());
+                Assert.That(addProductPage.VerifyCollapseAll());
             }
             catch (Exception e)
             {
@@ -353,7 +353,7 @@ namespace SeleniumFramework
                 ProductPage productPage = loginPage.Login();
                 AddProductPage addProductPage = productPage.NavigateToAddProductPage();
 
-                Assert.Equals(true, addProductPage.VerifyCertificationsTabSectionCollapse());
+                Assert.That(addProductPage.VerifyCertificationsTabSectionCollapse());
             }
             catch (Exception e)
             {
@@ -372,7 +372,7 @@ namespace SeleniumFramework
                 ProductPage productPage = loginPage.Login();
                 AddProductPage addProductPage = productPage.NavigateToAddProductPage();
 
-                Assert.Equals(true, addProductPage.VerifyPrimarySpecificationsTabSectionCollapse());
+                Assert.That(addProductPage.VerifyPrimarySpecificationsTabSectionCollapse());
                 
             }
             catch (Exception e)
@@ -392,7 +392,7 @@ namespace SeleniumFramework
                 ProductPage productPage = loginPage.Login();
                 AddProductPage addProductPage = productPage.NavigateToAddProductPage();
 
-                Assert.Equals(true, addProductPage.VerifySecondarySpecificationsTabSectionCollapse());
+                Assert.That(addProductPage.VerifySecondarySpecificationsTabSectionCollapse());
             }
             catch (Exception e)
             {
@@ -411,7 +411,7 @@ namespace SeleniumFramework
                 ProductPage productPage = loginPage.Login();
                 AddProductPage addProductPage = productPage.NavigateToAddProductPage();
 
-                Assert.Equals(true, addProductPage.VerifyCrossReferencesTabSectionCollapse());
+                Assert.That(addProductPage.VerifyCrossReferencesTabSectionCollapse());
             }
             catch (Exception e)
             {
@@ -432,7 +432,7 @@ namespace SeleniumFramework
 
                 productPage = addProductPage.CancelButtonReturnsToProductPage();
 
-                Assert.Equals(true, productPage.IsProductPageDisplayed());
+                Assert.That(productPage.IsProductPageDisplayed());
             }
             catch (Exception e)
             {
@@ -453,7 +453,7 @@ namespace SeleniumFramework
 
                 addProductPage = addProductPage.SelectAlarmType();
 
-                Assert.Equals(true, addProductPage.AreAlarmControlsVisible());
+                Assert.That(addProductPage.AreAlarmControlsVisible());
             }
             catch (Exception e)
             {
@@ -474,7 +474,7 @@ namespace SeleniumFramework
 
                 addProductPage = addProductPage.SelectCameraType();
 
-                Assert.Equals(true, addProductPage.AreCameraControlsVisible());
+                Assert.That(addProductPage.AreCameraControlsVisible());
             }
             catch (Exception e)
             {
@@ -495,7 +495,7 @@ namespace SeleniumFramework
 
                 addProductPage = addProductPage.SelectLightType();
 
-                Assert.Equals(true, addProductPage.AreLightControlsVisible());
+                Assert.That(addProductPage.AreLightControlsVisible());
             }
             catch (Exception e)
             {
@@ -516,7 +516,7 @@ namespace SeleniumFramework
 
                 addProductPage = addProductPage.SelectSirenSpeakerType();
 
-                Assert.Equals(true, addProductPage.AreSirenSpeakerControlsVisible());
+                Assert.That(addProductPage.AreSirenSpeakerControlsVisible());
             }
             catch (Exception e)
             {
@@ -537,7 +537,7 @@ namespace SeleniumFramework
 
                 addProductPage = addProductPage.SelectWorkLampType();
 
-                Assert.Equals(true, addProductPage.AreWorkLampControlsVisible());
+                Assert.That(addProductPage.AreWorkLampControlsVisible());
             }
             catch (Exception e)
             {
@@ -557,7 +557,7 @@ namespace SeleniumFramework
                 AddProductPage addProductPage = productPage.NavigateToAddProductPage();
                 EditProductPage editProductPage = addProductPage.NavigateToEditProductPageAfterAlarmType();
 
-                Assert.Equals(true, editProductPage.IsEditProductPageTitle());
+                Assert.That(editProductPage.IsEditProductPageTitle());
             }
             catch (Exception e)
             {
@@ -579,7 +579,7 @@ namespace SeleniumFramework
 
                 productPage = editProductPage.ClickCancelOneButton();
 
-                Assert.Equals(true, productPage.IsProductPageDisplayed());
+                Assert.That(productPage.IsProductPageDisplayed());
             }
             catch (Exception e)
             {
@@ -601,7 +601,7 @@ namespace SeleniumFramework
 
                 productPage = editProductPage.ClickCancelTwoButton();
 
-                Assert.Equals(true, productPage.IsProductPageDisplayed());
+                Assert.That(productPage.IsProductPageDisplayed());
             }
             catch (Exception e)
             {
@@ -622,7 +622,7 @@ namespace SeleniumFramework
                 EditProductPage editProductPage = addProductPage.NavigateToEditProductPageAfterAlarmType();
                 EditCertificationsAddNewRecordFormPage editAddNewRecordFormPage = editProductPage.NavigateToEditAddNewRecordFormPage();
                 
-                Assert.Equals(true, editAddNewRecordFormPage.IsEditAddNewRecordFormDisplayed());
+                Assert.That(editAddNewRecordFormPage.IsEditAddNewRecordFormDisplayed());
             }
             catch (Exception e)
             {
@@ -643,7 +643,7 @@ namespace SeleniumFramework
                 EditProductPage editProductPage = addProductPage.NavigateToEditProductPageAfterAlarmType();
                 EditCrossReferencesAddNewRecordPage editCrossReferencesAddNewRecordPage = editProductPage.NavigateToEditCrossReferencesAddNewRecordPage();
 
-                Assert.Equals(true, editCrossReferencesAddNewRecordPage.IsEditAddNewRecordFormDisplayed());
+                Assert.That(editCrossReferencesAddNewRecordPage.IsEditAddNewRecordFormDisplayed());
             }
             catch (Exception e)
             {
@@ -664,7 +664,7 @@ namespace SeleniumFramework
                 EditProductPage editProductPage = addProductPage.NavigateToEditProductPageAfterAlarmType();
                 EditProductDuplicateProductPage editProductDuplicateProductPage = editProductPage.NavigateToDuplicateProductPage();
 
-                Assert.Equals(true, editProductDuplicateProductPage.IsDuplicateProductTitleVisible());
+                Assert.That(editProductDuplicateProductPage.IsDuplicateProductTitleVisible());
             }
             catch (Exception e)
             {
@@ -686,7 +686,7 @@ namespace SeleniumFramework
 
                 editProductPage = editProductPage.ExpandCollapseAll();
 
-                Assert.Equals(true, editProductPage.IsFormCollapsed());
+                Assert.That(editProductPage.IsFormCollapsed());
             }
             catch (Exception e)
             {
@@ -707,7 +707,7 @@ namespace SeleniumFramework
 
                 addProductPage = addProductPage.ClickSubmitFormsNoType();
 
-                Assert.Equals(true, addProductPage.IsErrorDialogueDisplayed());
+                Assert.That(addProductPage.IsErrorDialogueDisplayed());
             }
             catch (Exception e)
             {
@@ -726,7 +726,7 @@ namespace SeleniumFramework
                 ProductPage productPage = loginPage.Login();
                 LogoutPage logoutPage = productPage.LogoutOfDB();
 
-                Assert.Equals(true, logoutPage.IsLogoutLabelDisplayed());
+                Assert.That(logoutPage.IsLogoutLabelDisplayed());
             }
             catch (Exception e)
             {
