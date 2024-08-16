@@ -81,6 +81,30 @@
         <member name="M:Microsoft.Testing.Extensions.VSTestBridge.CommandLine.TestCaseFilterCommandLineOptionsProvider.ValidateOptionArgumentsAsync(Microsoft.Testing.Platform.Extensions.CommandLine.CommandLineOption,System.String[])">
             <inheritdoc />
         </member>
+        <member name="P:Microsoft.Testing.Extensions.VSTestBridge.CommandLine.TestRunParametersCommandLineOptionsProvider.Uid">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.VSTestBridge.CommandLine.TestRunParametersCommandLineOptionsProvider.Version">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.VSTestBridge.CommandLine.TestRunParametersCommandLineOptionsProvider.DisplayName">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.VSTestBridge.CommandLine.TestRunParametersCommandLineOptionsProvider.Description">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.VSTestBridge.CommandLine.TestRunParametersCommandLineOptionsProvider.IsEnabledAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.VSTestBridge.CommandLine.TestRunParametersCommandLineOptionsProvider.GetCommandLineOptions">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.VSTestBridge.CommandLine.TestRunParametersCommandLineOptionsProvider.ValidateCommandLineOptionsAsync(Microsoft.Testing.Platform.CommandLine.ICommandLineOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.VSTestBridge.CommandLine.TestRunParametersCommandLineOptionsProvider.ValidateOptionArgumentsAsync(Microsoft.Testing.Platform.Extensions.CommandLine.CommandLineOption,System.String[])">
+            <inheritdoc />
+        </member>
         <member name="P:Microsoft.Testing.Extensions.VSTestBridge.Configurations.RunSettingsConfigurationProvider.Uid">
             <inheritdoc />
         </member>
@@ -125,6 +149,13 @@
         <member name="M:Microsoft.Testing.Extensions.VSTestBridge.Helpers.TestApplicationBuilderExtensions.AddRunSettingsService(Microsoft.Testing.Platform.Builder.ITestApplicationBuilder,Microsoft.Testing.Platform.Extensions.IExtension)">
             <summary>
             Allows to register the VSTest runsettings service.
+            </summary>
+            <param name="builder">The test application builder.</param>
+            <param name="extension">The extension that will be used as the source of registration for this helper service.</param>
+        </member>
+        <member name="M:Microsoft.Testing.Extensions.VSTestBridge.Helpers.TestApplicationBuilderExtensions.AddTestRunParametersService(Microsoft.Testing.Platform.Builder.ITestApplicationBuilder,Microsoft.Testing.Platform.Extensions.IExtension)">
+            <summary>
+            Allows to register the VSTest TestRunParameters service.
             </summary>
             <param name="builder">The test application builder.</param>
             <param name="extension">The extension that will be used as the source of registration for this helper service.</param>
@@ -516,6 +547,26 @@
         <member name="P:Microsoft.Testing.Extensions.VSTestBridge.Resources.ExtensionResources.RunsettingsFileDoesNotExist">
             <summary>
               Looks up a localized string similar to runsettings file &apos;{0}&apos; does not exist.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.VSTestBridge.Resources.ExtensionResources.RunSettingsOptionDescription">
+            <summary>
+              Looks up a localized string similar to The path, relative or absolute, to the .runsettings file. For more information and examples on how to configure test run, see https://learn.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file#the-runsettings-file.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.VSTestBridge.Resources.ExtensionResources.TestCaseFilterOptionDescription">
+            <summary>
+              Looks up a localized string similar to Filters tests using the given expression. For more information, see the Filter option details section. For more information and examples on how to use selective unit test filtering, see https://learn.microsoft.com/dotnet/core/testing/selective-unit-tests..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.VSTestBridge.Resources.ExtensionResources.TestRunParameterOptionArgumentIsNotParameter">
+            <summary>
+              Looks up a localized string similar to argument &apos;{0}&apos; is not a parameter. Parameters arguments are matching the following pattern &apos;key=value&apos;..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Testing.Extensions.VSTestBridge.Resources.ExtensionResources.TestRunParameterOptionDescription">
+            <summary>
+              Looks up a localized string similar to Specify or override a key-value pair parameter. For more information and examples, see https://learn.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file#testrunparameters.
             </summary>
         </member>
         <member name="P:Microsoft.Testing.Extensions.VSTestBridge.Resources.ExtensionResources.VSTestBridgedTestFrameworkSessionAlreadyCreatedErrorMessage">
