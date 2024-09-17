@@ -85,6 +85,8 @@ namespace SeleniumFramework
             {
                 case Browser.Chrome:
                     ChromeOptions chromeOptions = new ChromeOptions();
+
+                    chromeOptions.AddArgument("headless");
                     chromeOptions.AddArgument("start-maximized"); // https://stackoverflow.com/a/26283818/1689770
                     chromeOptions.AddArgument("--no-sandbox"); //https://stackoverflow.com/a/50725918/1689770
                     chromeOptions.AddArgument("--disable-infobars"); //https://stackoverflow.com/a/43840128/1689770
