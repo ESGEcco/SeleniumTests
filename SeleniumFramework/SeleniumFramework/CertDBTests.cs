@@ -18,7 +18,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -36,7 +36,7 @@ namespace SeleniumFramework
             }
             catch(Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
                 
                 throw new Exception(e.Message);
             }            
@@ -56,7 +56,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -76,7 +76,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -96,7 +96,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -115,7 +115,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -134,7 +134,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -152,7 +152,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -170,7 +170,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -189,7 +189,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -209,7 +209,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -228,7 +228,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -247,7 +247,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -265,7 +265,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -283,7 +283,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -301,7 +301,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -319,7 +319,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -338,7 +338,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -357,7 +357,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -377,7 +377,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -396,7 +396,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -415,7 +415,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -436,7 +436,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -457,7 +457,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -478,7 +478,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -499,7 +499,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -520,7 +520,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -541,7 +541,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -561,7 +561,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -583,7 +583,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -605,7 +605,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -626,7 +626,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -647,7 +647,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -668,7 +668,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -690,7 +690,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -711,7 +711,7 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
@@ -730,10 +730,16 @@ namespace SeleniumFramework
             }
             catch (Exception e)
             {
-                CaptureScreenshot();
+                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
 
                 throw new Exception(e.Message);
             }
+        }
+
+        [TearDown]
+        public void DeleteDriver()
+        {
+            TestCleanup();
         }
     }
 }

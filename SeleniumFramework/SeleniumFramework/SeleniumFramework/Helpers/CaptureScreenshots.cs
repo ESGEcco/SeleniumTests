@@ -16,7 +16,7 @@ namespace SeleniumFramework.SeleniumFramework.Helpers
             {
                 Directory.CreateDirectory(path);
             }
-
+            
             screenShotRemoteWebDriver.TakeScreenshot(path, "ErrorScreenshot ");
         }
 

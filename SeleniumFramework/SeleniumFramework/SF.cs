@@ -86,7 +86,7 @@ namespace SeleniumFramework
                 case Browser.Chrome:
                     ChromeOptions chromeOptions = new ChromeOptions();
 
-                    chromeOptions.AddArgument("headless");
+                    //chromeOptions.AddArgument("headless");
                     chromeOptions.AddArgument("start-maximized"); // https://stackoverflow.com/a/26283818/1689770
                     chromeOptions.AddArgument("--no-sandbox"); //https://stackoverflow.com/a/50725918/1689770
                     chromeOptions.AddArgument("--disable-infobars"); //https://stackoverflow.com/a/43840128/1689770
@@ -94,12 +94,15 @@ namespace SeleniumFramework
                     chromeOptions.AddArgument("--disable-browser-side-navigation"); //https://stackoverflow.com/a/49123152/1689770
                     chromeOptions.AddArgument("--disable-gpu"); //https://stackoverflow.com/questions/51959986/how-to-solve-selenium-chromedriver-timed-out-receiving-message-from-renderer-exc
                     chromeOptions.AddArguments("--incognito");
+
                     retval = new ChromeDriver(chromeOptions);
                     break;
                 case Browser.FireFox:
                     FirefoxOptions options = new FirefoxOptions();
+
                     options.Profile = new FirefoxProfile();
                     options.AcceptInsecureCertificates = true;
+
                     retval = new FirefoxDriver(options);
                     break;
                 case Browser.Edge:

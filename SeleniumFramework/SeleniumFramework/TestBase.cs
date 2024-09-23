@@ -17,7 +17,7 @@ namespace SeleniumFramework
             SF.Driver = null; //Resets the driver on the next run
         }
 
-        public void CaptureScreenshot(string path = @".\Screenshots")
+        public void CaptureScreenshot(string fileName, string path = @".\Screenshots")
         {
             ScreenShotRemoteWebDriver screenShotRemoteWebDriver = new ScreenShotRemoteWebDriver();
 
@@ -26,7 +26,7 @@ namespace SeleniumFramework
                 Directory.CreateDirectory(path);
             }
 
-            screenShotRemoteWebDriver.TakeScreenshot(path, "ErrorScreenshot ");
+            screenShotRemoteWebDriver.TakeScreenshot(path, fileName + " ");
         }
 
         public void CaptureElementScreenshot(IWebElement element)
