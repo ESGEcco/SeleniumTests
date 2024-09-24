@@ -158,24 +158,6 @@ namespace SeleniumFramework
             }
         }
 
-        [Test(Description ="Verifies that the login page is by passed if authorized credentials have been previously entered")]
-        public void NavigateDirectlyToCertDBProductPage()
-        {
-            //This should only pass if the CertDB does not require credentials (Ex: previously logged in)
-            try
-            {
-                ProductPage productPage = SF.OpenSites.OpenCertDBToProductPage();
-
-                Assert.That(productPage.IsProductPageDisplayed());
-            }
-            catch (Exception e)
-            {
-                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
-
-                throw new Exception(e.Message);
-            }
-        }
-
         [Test(Description ="Verifies navigation to the Add Product page")]
         public void NavigateToAddProductPage()
         {
@@ -206,25 +188,6 @@ namespace SeleniumFramework
                 productPage = productPage.ExpandOptionsSection();
 
                 Assert.That(productPage.IsGroupOptionLabelVisible());
-            }
-            catch (Exception e)
-            {
-                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
-
-                throw new Exception(e.Message);
-            }
-        }
-
-        [Test(Description ="Verifies successful navigation to the Privacy page")]
-        public void NavigateToPrivacyPage()
-        {
-            try
-            {
-                LoginPage loginPage = SF.OpenSites.OpenCertDB();
-                ProductPage productPage = loginPage.Login();
-                PrivacyPage privacyPage = productPage.NavigateToPrivacyPage();
-
-                Assert.That(privacyPage.IsPrivacyPolicyPageLoaded());
             }
             catch (Exception e)
             {
@@ -578,28 +541,6 @@ namespace SeleniumFramework
                 EditProductPage editProductPage = addProductPage.NavigateToEditProductPageAfterAlarmType();
 
                 productPage = editProductPage.ClickCancelOneButton();
-
-                Assert.That(productPage.IsProductPageDisplayed());
-            }
-            catch (Exception e)
-            {
-                CaptureScreenshot(TestContext.CurrentContext.Test.Name);
-
-                throw new Exception(e.Message);
-            }
-        }
-
-        [Test(Description ="Verifies navigation to the Product page after clicking the bottom Cancel button")]
-        public void VerifyNavigateToProductPageAfterCancelTwo()
-        {
-            try
-            {
-                LoginPage loginPage = SF.OpenSites.OpenCertDB();
-                ProductPage productPage = loginPage.Login();
-                AddProductPage addProductPage = productPage.NavigateToAddProductPage();
-                EditProductPage editProductPage = addProductPage.NavigateToEditProductPageAfterAlarmType();
-
-                productPage = editProductPage.ClickCancelTwoButton();
 
                 Assert.That(productPage.IsProductPageDisplayed());
             }

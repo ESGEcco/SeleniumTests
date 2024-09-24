@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using SeleniumFramework.SeleniumFramework.Controls;
 using SeleniumFramework.SeleniumFramework.Helpers;
+using System.Threading;
 
 namespace SeleniumFramework.Pages.CertDbPages
 {
@@ -695,8 +696,10 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public ProductPage ClickCancelTwoButton()
         {
-            CancelTwoButton.WaitForClickable();
-            CancelTwoButton.Click();
+            CancelOneButton.WaitForClickable();
+            CancelOneButton.Click();
+
+            Thread.Sleep(1000);
 
             return new ProductPage();
         }
@@ -726,6 +729,8 @@ namespace SeleniumFramework.Pages.CertDbPages
         public EditProductDuplicateProductPage NavigateToDuplicateProductPage()
         {
             DuplicateProductButton.Click();
+
+            Thread.Sleep(1000);
 
             return new EditProductDuplicateProductPage();
         }

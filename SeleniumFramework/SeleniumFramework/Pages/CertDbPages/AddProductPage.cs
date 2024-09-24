@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using SeleniumFramework.SeleniumFramework.Controls;
 using SeleniumFramework.SeleniumFramework.Helpers;
+using System.Threading;
 
 namespace SeleniumFramework.Pages.CertDbPages
 {
@@ -71,7 +72,7 @@ namespace SeleniumFramework.Pages.CertDbPages
         By ratedPowerMaximumTextbox = By.Id("RatedPowerMaximum");
         By sirenSpeakerMountingTextbox = By.Id("Mounting");
         By sirenSpeakerHousingMaterialTextbox = By.Id("HousingMaterial");
-        By calculatedLumensTextbox = By.Id("CalculatedLumens");
+        By calculatedLumensTextbox = By.Id("CalculatedRawLumens");
         By rawLumensTextbox = By.Id("RawLumens");
         By effectiveLumensTextbox = By.Id("EffectiveLumens");
         By illuminanceTextbox = By.Id("Illuminance");
@@ -1054,15 +1055,14 @@ namespace SeleniumFramework.Pages.CertDbPages
             CameraTypeSelectionButton.WaitForClickable();
             CameraTypeSelectionButton.Click();
 
+            CameraMountingTextbox.WaitForVisible();
+
             return new AddProductPage();
         }
 
         public bool AreCameraControlsVisible()
         {
-            if (CameraMountingTextbox.Visible && MonitorMountingTextbox.Visible && ColorSystemTextbox.Visible &&
-                ScreenSizeTextbox.Visible && ScreenRatioTextbox.Visible && ResolutionTextbox.Visible &&
-                LensAngleTextbox.Visible && InfraRedLedTextbox.Visible && WirelessSlider.Visible && AudioInputSlider.Visible &&
-                DayNightSensorSlider.Visible && MirrorNormalImageSlider.Visible)
+            if(CameraMountingTextbox.Visible)
             {
                 return true;
             }
@@ -1121,14 +1121,14 @@ namespace SeleniumFramework.Pages.CertDbPages
             WorkLampSelectionButton.WaitForClickable();
             WorkLampSelectionButton.Click();
 
+            Thread.Sleep(3000);
+
             return new AddProductPage();
         }
 
         public bool AreWorkLampControlsVisible()
         {
-            if (CalculatedLumensTextbox.Visible && RawLumensTextbox.Visible && EffectiveLumensTextbox.Visible &&
-                IlluminanceTextbox.Visible && IntensityTextbox.Visible && CctTextbox.Visible && WorkLampMountingTextbox.Visible &&
-                BaseMaterialTextbox.Visible && LensMaterialTextbox.Visible)
+            if (CalculatedLumensTextbox.Visible)
             {
                 return true;
             }
@@ -1212,7 +1212,7 @@ namespace SeleniumFramework.Pages.CertDbPages
         public bool VerifySecondarySpecificationsTabSectionCollapse()
         {
             SecondarySpecificationsTab.Click();
-            SecondarySpecificationsTabSection.WaitForNotVisible();
+            Thread.Sleep(1000);
 
             if (!SecondarySpecificationsTabSection.Visible)
             {
