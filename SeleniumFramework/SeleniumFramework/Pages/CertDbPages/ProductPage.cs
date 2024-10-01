@@ -13,7 +13,7 @@ namespace SeleniumFramework.Pages.CertDbPages
         By titleLabel = By.Id("title");
         By addNewProductButton = By.Id("addProductButton");
         By optionsHeaderSection = By.ClassName("expansion-panel-section");
-        By groupSectionLabel = By.XPath("//p[contains(text(), 'Group Options')]");
+        By groupSection = By.Id("Options");
         By groupOptionsDropdown = By.ClassName("k-input-inner");
         By clearAllFiltersButton = By.XPath("//button[contains(text(), 'Clear all Filters')]");
         By searchByPartIdTextbox = By.XPath("//input[contains(@title, 'Search by')]");
@@ -61,11 +61,11 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
-        public LabelBase GroupSectionLabel
+        public LabelBase GroupSection
         {
             get
             {
-                IWebElement element = waitFor.Element(groupSectionLabel);
+                IWebElement element = waitFor.Element(groupSection);
 
                 return new LabelBase(element);
             }
@@ -243,7 +243,7 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public bool IsGroupOptionLabelVisible()
         {
-            return GroupSectionLabel.Visible;
+            return GroupSection.Visible;
         }
 
         public bool IsProductPageDisplayed()
