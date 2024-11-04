@@ -975,6 +975,8 @@ namespace SeleniumFramework.Pages.CertDbPages
             AlarmTypeSelectionButton.Click();
             SubmitFormsOneButton.Click();
 
+            Thread.Sleep(5000);
+
             return new EditProductPage();
         }
 
