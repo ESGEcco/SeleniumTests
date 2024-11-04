@@ -689,6 +689,7 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public ProductPage ClickCancelOneButton()
         {
+            CancelOneButton.WaitForClickable();
             CancelOneButton.Click();
 
             return new ProductPage();
@@ -699,13 +700,12 @@ namespace SeleniumFramework.Pages.CertDbPages
             CancelOneButton.WaitForClickable();
             CancelOneButton.Click();
 
-            Thread.Sleep(1000);
-
             return new ProductPage();
         }
 
         public EditProductPage ExpandCollapseAll()
         {
+            ExpandCollapseAllButton.WaitForClickable();
             ExpandCollapseAllButton.Click();
 
             return new EditProductPage();
@@ -713,6 +713,7 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public EditCertificationsAddNewRecordFormPage NavigateToEditAddNewRecordFormPage()
         {
+            CertificationsAddNewProductButton.WaitForClickable();
             CertificationsAddNewProductButton.Click();
 
             return new EditCertificationsAddNewRecordFormPage();
@@ -728,9 +729,8 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public EditProductDuplicateProductPage NavigateToDuplicateProductPage()
         {
+            DuplicateProductButton.WaitForClickable();
             DuplicateProductButton.Click();
-
-            Thread.Sleep(1000);
 
             return new EditProductDuplicateProductPage();
         }
