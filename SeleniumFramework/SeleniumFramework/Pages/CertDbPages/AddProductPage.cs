@@ -971,7 +971,6 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public EditProductPage NavigateToEditProductPageAfterAlarmType()
         {
-            SelectATypeButton.WaitForClickable();
             SelectATypeButton.Click();
             AlarmTypeSelectionButton.Click();
             SubmitFormsOneButton.Click();
@@ -981,7 +980,6 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public EditProductPage NavigateToEditProductPageAfterCameraType()
         {
-            SelectATypeButton.WaitForClickable();
             SelectATypeButton.Click();
             CameraTypeSelectionButton.Click();
             SubmitFormsOneButton.Click();
@@ -991,7 +989,6 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public EditProductPage NavigateToEditProductPageAfterLightType()
         {
-            SelectATypeButton.WaitForClickable();
             SelectATypeButton.Click();
             LightTypeSelectionButton.Click();
             SubmitFormsOneButton.Click();
@@ -1001,7 +998,6 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public EditProductPage NavigateToEditProductPageAfterSirenSpeakerType()
         {
-            SelectATypeButton.WaitForClickable();
             SelectATypeButton.Click();
             SirenSpeakerSelectionButton.Click();
             SubmitFormsOneButton.Click();
@@ -1011,7 +1007,6 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public EditProductPage NavigateToEditProductPageAfterWorkLampType()
         {
-            SelectATypeButton.WaitForClickable();
             SelectATypeButton.Click();
             WorkLampSelectionButton.Click();
             SubmitFormsOneButton.Click();
@@ -1021,7 +1016,6 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public EditProductPage ExpandCollapseAll()
         {
-            ExpandCollapseAllButton.WaitForClickable();
             ExpandCollapseAllButton.Click();
 
             return new EditProductPage();
@@ -1029,7 +1023,6 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public ProductPage CancelButtonReturnsToProductPage()
         {
-            CancelProductOneButton.WaitForClickable();
             CancelProductOneButton.Click();
 
             return new ProductPage();
@@ -1081,7 +1074,6 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public AddProductPage SelectLightType()
         {
-            SelectATypeButton.WaitForClickable();
             SelectATypeButton.Click();
             LightTypeSelectionButton.WaitForClickable();
             LightTypeSelectionButton.Click();
@@ -1091,7 +1083,6 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public AddProductPage ClickSubmitFormsNoType()
         {
-            SubmitFormsOneButton.WaitForClickable();
             SubmitFormsOneButton.Click();
 
             return new AddProductPage();
@@ -1099,7 +1090,6 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public AddProductPage SelectSirenSpeakerType()
         {
-            SelectATypeButton.WaitForClickable();
             SelectATypeButton.Click();
             SirenSpeakerSelectionButton.WaitForClickable();
             SirenSpeakerSelectionButton.Click();

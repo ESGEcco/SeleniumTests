@@ -195,7 +195,6 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public AddProductPage NavigateToAddProductPage()
         {
-            AddNewProductButton.WaitForClickable();
             AddNewProductButton.Click();
 
             return new AddProductPage();
@@ -203,7 +202,6 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public ProductPage ExpandOptionsSection()
         {
-            OptionsHeaderSection.WaitForClickable();
             OptionsHeaderSection.Click();
 
             return new ProductPage();
@@ -211,7 +209,6 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public PrivacyPage NavigateToPrivacyPage()
         {
-            PrivacyPolicyPageLink.WaitForClickable();
             PrivacyPolicyPageLink.Click();
 
             return new PrivacyPage();
@@ -219,7 +216,6 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public EditProductPage NavigateToEditProductPage()
         {
-            EditRecordButton.WaitForClickable();
             EditRecordButton.Click();
 
             return new EditProductPage();
@@ -227,7 +223,6 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public LogoutPage LogoutOfDB()
         {
-            AccountButton.WaitForClickable();
             AccountButton.Click();
             LogoutButton.Click();
 
