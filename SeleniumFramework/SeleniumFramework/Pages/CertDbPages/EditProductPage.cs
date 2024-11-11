@@ -689,6 +689,8 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public ProductPage ClickCancelOneButton()
         {
+            Thread.Sleep(1000);
+            
             CancelOneButton.Click();
 
             return new ProductPage();
@@ -696,13 +698,17 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public ProductPage ClickCancelTwoButton()
         {
-            CancelOneButton.Click();
+            Thread.Sleep(1000);
+            
+            CancelTwoButton.Click();
 
             return new ProductPage();
         }
 
         public EditProductPage ExpandCollapseAll()
         {
+            Thread.Sleep(1000);
+
             ExpandCollapseAllButton.Click();
 
             return new EditProductPage();
@@ -724,6 +730,8 @@ namespace SeleniumFramework.Pages.CertDbPages
 
         public EditProductDuplicateProductPage NavigateToDuplicateProductPage()
         {
+            Thread.Sleep(1500);
+            
             DuplicateProductButton.Click();
 
             return new EditProductDuplicateProductPage();
