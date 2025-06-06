@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using SeleniumFramework.Pages.CertDbPages;
+using SeleniumFramework.Pages.LightbarBuilder;
 using System.Configuration;
 
 namespace SeleniumFramework
@@ -30,6 +31,15 @@ namespace SeleniumFramework
             driver.Navigate().GoToUrl(baseURL);
 
             return new ProductPage();
+        }
+
+        public LbbLoginPage OpenLightbarBuilder()
+        {
+            string baseURL = (string)appSettings.GetValue("LbbLaunchUrl", typeof(string));
+
+            driver.Navigate().GoToUrl(baseURL);
+
+            return new LbbLoginPage();
         }
     }
 }

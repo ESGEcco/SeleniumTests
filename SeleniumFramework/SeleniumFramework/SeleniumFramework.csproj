@@ -154,6 +154,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LbbTests.cs" />
     <Compile Include="OpenSites.cs" />
     <Compile Include="Pages\CertDbPages\AddProductPage.cs" />
     <Compile Include="Pages\CertDbPages\EditCertificationsAddNewRecordFormPage.cs" />
@@ -165,6 +166,8 @@
     <Compile Include="Pages\CertDbPages\LogoutPage.cs" />
     <Compile Include="Pages\CertDbPages\PrivacyPage.cs" />
     <Compile Include="Pages\CertDbPages\ProductPage.cs" />
+    <Compile Include="Pages\LightbarBuilder\LbbLoginPage.cs" />
+    <Compile Include="Pages\LightbarBuilder\LightbarBuilderPage.cs" />
     <Compile Include="SeleniumFramework\Controls\BaseControl.cs" />
     <Compile Include="SeleniumFramework\Controls\ButtonBase.cs" />
     <Compile Include="SeleniumFramework\Controls\CheckboxBase.cs" />
