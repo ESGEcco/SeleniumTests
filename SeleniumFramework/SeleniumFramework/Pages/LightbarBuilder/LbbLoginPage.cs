@@ -21,6 +21,7 @@ namespace SeleniumFramework.Pages.LightbarBuilder
         By rememberMyLoginLabel = By.XPath("//label[contains(text(), 'Remember My Login')]");
         By rememberMyLoginCheckbox = By.Id("RememberLogin");
         By forgotPasswordLink = By.LinkText("Forgot Password");
+        By errorInvalidUsernameLabel = By.XPath("//li[contains(text(), 'The Username field is required.')]");
 
         public LabelBase LoginLabel
         {
@@ -130,6 +131,59 @@ namespace SeleniumFramework.Pages.LightbarBuilder
 
                 return new LinkBase(element);
             }
+        }
+
+        public LabelBase ErrorInvalidUsernameLabel { 
+            get
+            {
+                IWebElement element = waitFor.Element(errorInvalidUsernameLabel);\
+
+                return new LabelBase(element);
+            }}
+
+        public LightbarBuilderPage CorrectLogin()
+        {
+            FillOutLoginForm();
+
+            LoginButton.Click();
+
+            return new LightbarBuilderPage();
+        }
+
+        public bool AreControlsVisible()
+        {
+            bool controlsVisble = LoginLabel.Visible && UsernameLabel.Visible && LocalLoginLabel.Visible && UsernameTextbox.Visible
+                && PasswordLabel.Visible && PasswordTextbox.Visible && LoginLabel.Visible && CancelButton.Visible;
+
+            return controlsVisble;
+        }
+
+        public bool IsUsernameMissing()
+        {
+            return ErrorInvalidUsernameLabel.Visible;
+        }
+
+        private void FillOutUserName()
+        {
+            string userName = (string)appSettings.GetValue("LbbUsername", typeof(string));
+
+            UsernameTextbox.Text = decrypt.Decrypt(userName);
+        }
+
+        private void FillOutPassword()
+        {
+            string password = (string)appSettings.GetValue("LbbPassword", typeof(string));
+
+            PasswordTextbox.Text = decrypt.Decrypt(password);
+        }
+
+        private void FillOutLoginForm()
+        {
+            string username = (string)appSettings.GetValue("LbbUsername", typeof(string));
+            string password = (string)appSettings.GetValue("LbbPassword", typeof(string));
+
+            UsernameTextbox.Text = decrypt.Decrypt(username);
+            PasswordTextbox.Text = decrypt.Decrypt(password);
         }
     }
 }

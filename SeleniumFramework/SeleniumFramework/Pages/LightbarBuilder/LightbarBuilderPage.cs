@@ -19,5 +19,10 @@ namespace SeleniumFramework.Pages.LightbarBuilder
                 return new ButtonBase(element);
             }
         }
+
+        public bool IsQuoteButtonVisible()
+        {
+            return RequestQuoteButton.Visible;
+        }
     }
 }

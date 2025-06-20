@@ -211,6 +211,11 @@ namespace SeleniumFramework.Pages.CertDbPages
             }
         }
 
+        public bool IsUsernameErrorVisible()
+        {
+            FillOutPassword();
+        }
+
         private void FillOutUserName()
         {
             string userName = (string)appSettings.GetValue("Username", typeof(string));
